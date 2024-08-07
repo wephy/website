@@ -54,8 +54,6 @@ export default {
 
 .brief {
   margin-top: -40px;
-  
-  color: #1b1c23;
   font-size: 20px;
   line-height: 1.2;
 }
@@ -67,6 +65,7 @@ export default {
 .overview-link {
   color: #1b1c23;
   text-decoration: none;
+  font-family: Basteleur-Bold;
   font-size: 18px;
   position: relative;
   display: inline-block;
