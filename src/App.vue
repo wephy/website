@@ -3,22 +3,20 @@
 
 <template>
   <div id="app" @mousemove="handleMouseMove">
-  <div class="background-overlay"></div>
+    <div class="mouse-overlay" :style="overlayStyle"></div>
+    <div class="background-overlay"></div>
     <div class="container">
       <LeftColumn/>
       <RightColumn/>
     </div>
-    <!-- Radial Circle Container -->
-    <div class="radial-circle" :style="{ top: `${mouseY}px`, left: `${mouseX}px` }"></div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import LeftColumn from './components/LeftColumn.vue';
 import RightColumn from './components/RightColumn.vue';
 
 export default {
-  name: 'App',
   components: {
     LeftColumn,
     RightColumn,
@@ -26,22 +24,34 @@ export default {
   data() {
     return {
       mouseX: 0,
-      mouseY: 0,
+      mouseY: 0
     };
   },
+  computed: {
+    overlayStyle() {
+      return {
+        left: `${this.mouseX}px`,
+        top: `${this.mouseY}px`,
+        transform: 'translate(-50%, -50%)'
+      };
+    }
+  },
   methods: {
-    handleMouseMove(event) {
+    handleMouseMove(event: MouseEvent) {
       this.mouseX = event.clientX;
       this.mouseY = event.clientY;
-    },
+    }
   },
+  mounted() {
+    window.addEventListener('mousemove', this.handleMouseMove);
+  },
+  beforeUnmount() {
+    window.removeEventListener('mousemove', this.handleMouseMove);
+  }
 };
 </script>
 
 <style>
-#app {
-  position: relative;
-}
 
 .container {
   display: flex;
@@ -52,10 +62,9 @@ body {
   font-family: Synonym-Medium;
   color: #46598c;
   font-size: 18px;
-  //background-color: #EEE7F6; /* Blue background for the entire page */
 }
 
-.radial-circle {
+.mouse-overlay {
   position: fixed;
   pointer-events: none; /* Ensure it doesn’t block clicks */
   width: 1000px;
@@ -64,7 +73,6 @@ body {
   border-radius: 50%;
   transform: translate(-50%, -50%); /* Center the circle */
   mix-blend-mode: multiply; /* Optional: blend the circle with the background */
-  z-index: 1000;
 }
 
 .background-overlay {
