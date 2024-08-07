@@ -81,6 +81,10 @@ export default {
   transition: width 0.3s ease;
 }
 
+.overview-link:hover {
+  color: #33AD63;
+}
+
 .overview-link:hover .stretch-dash {
   width: 50px; /* Width of the dash on hover */
 }

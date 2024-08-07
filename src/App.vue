@@ -138,7 +138,7 @@ body {
   pointer-events: none; /* Ensure it doesn’t block clicks */
   width: 1000px;
   height: 1000px;
-  background: radial-gradient(circle, rgb(230,230,250, 50) 0%, rgb(230,230,250, 10) 5%, rgb(230,230,250, 0) 60%);
+  background: radial-gradient(circle, rgb(255,217,128,50) 0%, rgb(255,217,128, 10) 5%, rgb(255,217,128, 0) 60%);
   border-radius: 50%;
   transform: translate(-50%, -50%); /* Center the circle */
   mix-blend-mode: multiply; /* Optional: blend the circle with the background */
@@ -151,7 +151,7 @@ body {
   width: 200vw;
   height: 200vh;
   z-index: -1; /* Make sure it's below the radial circle */
-  background: linear-gradient(-45deg, #add8e6, #d2daf3, #aedef6, #f5b3af);
+  background: linear-gradient(-45deg, #f9f3db, #ffefd5, #fff8e7, #f0ead6);
 	background-size: 200% 200%;
 	animation: gradient 15s ease infinite;
 }
