@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Synonym-Extralight';
+  src: url('../fonts/Synonym-Extralight.woff2') format('woff2'),
+       url('../fonts/Synonym-Extralight.woff') format('woff'),
+       url('../fonts/Synonym-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}

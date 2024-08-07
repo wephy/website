@@ -52,13 +52,13 @@ export default {
 .name {
   font-family: Amulya-Bold;
   font-size: 48px;
-  color: #26293A;
+  color: #1b1c23;
 }
 
 .title {
   margin-top: -50px;
   font-family: Amulya-Regular;
-  color: #26293A;
+  color: #1b1c23;
   font-size: 24px;
   line-height: 1.2;
 }
@@ -68,7 +68,7 @@ export default {
 }
 
 .overview-link {
-  color: #26293A;
+  color: #1b1c23;
   text-decoration: none;
   font-size: 18px;
   position: relative;
