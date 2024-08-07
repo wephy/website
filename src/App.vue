@@ -49,12 +49,27 @@ export default {
     window.removeEventListener('mousemove', this.handleMouseMove);
   }
 };
+
 </script>
 
 <style>
+#app {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align items at the top */
+  min-height: 100vh; /* Full viewport height */
+}
 
 .container {
   display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center columns horizontally */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -63,6 +78,58 @@ body {
   color: #46598c;
   font-size: 18px;
 }
+
+.left-column {
+  margin-right: calc(max(min(800px, (100vw / 2)), 550px));
+  text-align: left;
+  position: fixed;
+  top: 0;
+  width: 350px; /* Adjust width as needed */
+  height: 100vh; /* Full viewport height */
+  background: transparent;
+  padding: 20px;
+  overflow: auto; /* Handle overflow if needed */
+  z-index: 1; /* Ensure it's on top */
+  margin-top: 70px;
+}
+
+.right-column {
+  text-align: left;
+  flex: 2; /* Takes up more space than left column */
+  background: transparent; /* Transparent background */
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: 320px;
+  background-color: transparent; /* Make the right column transparent */
+  text-align: left;
+  width: 500px;
+}
+
+/* Responsive Styles */
+@media (max-width: 950px) {
+  .container {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .left-column {
+    position: relative; /* Reset positioning for narrow screens */
+    width: 100%;
+    height: auto; /* Allow height to be auto-adjusted */
+    margin-right: 0px;
+    margin-left: 0px;
+    max-width: 500px;
+  }
+
+  .right-column {
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 50px; /* Space between stacked columns */
+  }
+}
+
 
 .mouse-overlay {
   position: fixed;
@@ -97,41 +164,6 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
-}
-
-.left-column {
-  flex: 1; /* Takes up as much space as needed */
-  background: transparent; /* Transparent background */
-  padding: 20px;
-  border-right: 1px solid #ddd; /* Optional border for separation */
-  text-align: left;
-  max-width: 400px;
-  min-width: 400px;
-}
-
-.right-column {
-  flex: 2; /* Takes up more space than left column */
-  background: transparent; /* Transparent background */
-  padding: 20px;
-  margin-top: 50px;
-  max-width: 600px;
-  background-color: transparent; /* Make the right column transparent */
-  text-align: left;
-}
-
-/* Responsive Styles */
-@media (max-width: 1100px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .left-column {
-    border-right: none; /* Remove border when columns are stacked */
-  }
-
-  .right-column {
-    margin-top: 20px; /* Space between stacked columns */
-  }
 }
 
 </style>

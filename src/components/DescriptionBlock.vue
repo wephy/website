@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="block">
+  <div id="about" class="block">
     <div class="block desc">
     <p>
     There is a prevailing sentiment in chess that the synergy of human and machine is the 
@@ -27,8 +27,10 @@ export default {
 };
 </script>
 
-<style scoped>
-.block p {
-  line-height: 1.5;
+<style>
+
+.block {
+    margin-bottom: 50px;
 }
+
 </style>

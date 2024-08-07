@@ -8,9 +8,9 @@
     <p>Studying Mathematical Modelling and Scientific Computing asd asd asd as</p>
     <!-- <img class="portrait" src="../assets/PORTRAIT.png"/> -->
     <ul>
-      <li>About Me</li>
-      <li>Work Experience</li>
-      <li>Projects</li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#experience">EXPERIENCE</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
     </ul>
   </div>
 </template>
@@ -19,6 +19,26 @@
 export default {
   name: 'LeftColumn',
 };
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.structure-overview a');
+
+  links.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop + 60, // Adjust the offset value as needed
+          behavior: 'smooth' // Smooth scroll
+        });
+      }
+    });
+  });
+});
 </script>
 
 <style>
@@ -33,6 +53,7 @@ export default {
 
 .left-column h1{
   font-family: Amulya-Bold;
+  font-size: 48px;
   color: #26293A;
 }
 

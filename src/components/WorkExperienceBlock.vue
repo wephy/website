@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="work-experience">
+  <div id="experience" class="work-experience">
     <div class="work-item" v-for="experience in experiences" :key="experience.id">
         <div class="column work-left">
             <p>{{ experience.dateRange }}</p>

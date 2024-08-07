@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+[id] {
+  scroll-margin-top: 140px; /* Adjust based on the height of your fixed header or desired offset */
+}
+
 a {
   font-weight: 500;
   color: #646cff;
