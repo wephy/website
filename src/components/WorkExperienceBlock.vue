@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="work-experience">
     <div class="work-item" v-for="experience in experiences" :key="experience.id">

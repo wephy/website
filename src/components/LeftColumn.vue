@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="left-column">
     <h1>Joseph Webb</h1>
