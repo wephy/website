@@ -14,13 +14,21 @@
     </div>
     <!-- <img class="portrait" src="../assets/PORTRAIT.png"/> -->
     <div class=overview>
-        <a class="overview-link" href="#about">ABOUT</a>
-        <br>
-        <br>
-        <a class="overview-link" href="#experience">EXPERIENCE</a>
-        <br>
-        <br>
-        <a class="overview-link" href="#projects">PROJECTS</a>
+        <a class="overview-link" href="#about">
+            <div class="stretch-dash"></div>
+            <span> ABOUT</span>
+        </a>
+        <br><br>
+        <a class="overview-link" href="#experience">
+            <div class="stretch-dash"></div>
+            <span> EXPERIENCE</span>
+        </a>
+        <br><br>
+        <a class="overview-link" href="#projects">
+            <div class="stretch-dash"></div>
+            <span> PROJECTS</span>
+        </a>
+        <br><br>
     </div>
   </div>
 </template>
@@ -60,23 +68,25 @@ export default {
 }
 
 .overview-link {
-    color: #26293A;
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    position: relative;
-    display: inline-block;
-    padding-left: 0px; /* Initial space for the line */
-    transition: padding-left 0.3s ease;
+  color: #26293A;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  padding-left: 0px; /* Initial space for the line */
 }
 
-.overview-link:hover {
-    padding-left: 40px; /* Space when hovered to move the text */
+.stretch-dash {
+  display: inline-block;
+  width: 20px; /* Initial width of the dash */
+  height: 1px; /* Thickness of the dash */
+  background-color: black; /* Color of the dash */
+  vertical-align: 6px;
+  transition: width 0.3s ease;
 }
 
-.overview-link:hover {
-    width: 100%;
-    width: 30px; /* Line width when hovered */
+.overview-link:hover .stretch-dash {
+  width: 50px; /* Width of the dash on hover */
 }
 
 </style>

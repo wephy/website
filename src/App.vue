@@ -80,7 +80,7 @@ body {
 }
 
 .left-column {
-  margin-right: calc(max(min(800px, (100vw / 2)), 550px));
+  margin-right: calc(max(min(800px, (100vw / 2)), 600px));
   text-align: left;
   position: fixed;
   top: 0;
@@ -91,6 +91,7 @@ body {
   overflow: auto; /* Handle overflow if needed */
   z-index: 1; /* Ensure it's on top */
   margin-top: 70px;
+  margin-left: 40px;
 }
 
 .right-column {
