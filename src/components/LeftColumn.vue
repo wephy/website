@@ -6,9 +6,6 @@
     <div class="name">
         <p>Joseph Webb</p>
     </div>
-    <div class="title">
-        <p>Mathematician and Physicist</p>
-    </div>
     <div class="brief">
         <p>MSc Student at the University of Oxford in Mathematical Modelling and Scientific Computing</p>
     </div>
@@ -50,16 +47,16 @@ export default {
 }
 
 .name {
-  font-family: Amulya-Bold;
+  font-family: Basteleur-Bold;
   font-size: 48px;
   color: #1b1c23;
 }
 
-.title {
-  margin-top: -50px;
-  font-family: Amulya-Regular;
+.brief {
+  margin-top: -40px;
+  
   color: #1b1c23;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.2;
 }
 

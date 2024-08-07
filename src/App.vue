@@ -74,7 +74,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Synonym-Medium;
+  font-family: Latitude-Regular;
   color: #3e4a6a;
   font-size: 18px;
 }

@@ -5,3 +5,19 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Basteleur-Bold';
+  src: url('../fonts/Basteleur-Bold.woff2') format('woff2'),
+       url('../fonts/Basteleur-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Latitude-Regular';
+  src: url('../fonts/Latitude-Regular.woff2') format('woff2'),
+       url('../fonts/Latitude-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
