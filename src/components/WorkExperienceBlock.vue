@@ -68,7 +68,7 @@ export default {
     color: #1b1c23;
     line-height: 1.3;
     margin-bottom: 25px;
-    font-family: Basteleur-Bold;
+    font-family: ZT Chintzy;
 }
 
 .company {

@@ -47,7 +47,7 @@ export default {
 }
 
 .name {
-  font-family: Basteleur-Bold;
+  font-family: ZT Chintzy;
   font-size: 48px;
   color: #1b1c23;
 }
@@ -65,7 +65,7 @@ export default {
 .overview-link {
   color: #1b1c23;
   text-decoration: none;
-  font-family: Basteleur-Bold;
+  font-family: ZT Chintzy;
   font-size: 18px;
   position: relative;
   display: inline-block;

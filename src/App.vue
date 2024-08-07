@@ -74,9 +74,9 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Latitude-Regular;
+  font-family: Prociono;
   color: #3e4a6a;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .left-column {
@@ -90,7 +90,7 @@ body {
   padding: 20px;
   overflow: auto; /* Handle overflow if needed */
   z-index: 1; /* Ensure it's on top */
-  margin-top: 70px;
+  margin-top: 55px;
   margin-left: 40px;
 }
 
