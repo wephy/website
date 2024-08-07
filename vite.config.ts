@@ -3,10 +3,10 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: "/website/",
+  base: "/",
   plugins: [
     remix({
-      basename: "/website/",
+      basename: "/",
       ssr: false,
       future: {
         v3_fetcherPersist: true,
