@@ -66,7 +66,7 @@ export default {
     font-size: 18px;
     position: relative;
     display: inline-block;
-    padding-left: 20px; /* Initial space for the line */
+    padding-left: 0px; /* Initial space for the line */
     transition: padding-left 0.3s ease;
 }
 
