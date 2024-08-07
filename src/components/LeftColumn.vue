@@ -19,26 +19,6 @@
 export default {
   name: 'LeftColumn',
 };
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const links = document.querySelectorAll('.structure-overview a');
-
-  links.forEach(link => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop + 60, // Adjust the offset value as needed
-          behavior: 'smooth' // Smooth scroll
-        });
-      }
-    });
-  });
-});
 </script>
 
 <style>
