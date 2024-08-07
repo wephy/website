@@ -79,8 +79,8 @@ body {
   position: fixed; /* Ensure it covers the entire viewport */
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 200vw;
+  height: 200vh;
   z-index: -1; /* Make sure it's below the radial circle */
   background: linear-gradient(-45deg, #eee9f4, #eeeaf3, #eee9f4, #eeeaf3);
 	background-size: 100% 100%;
@@ -127,7 +127,6 @@ body {
 
   .left-column {
     border-right: none; /* Remove border when columns are stacked */
-    border-bottom: 1px solid #ddd; /* Add border at the bottom for separation */
   }
 
   .right-column {
