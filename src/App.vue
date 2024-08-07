@@ -99,4 +99,40 @@ body {
 	}
 }
 
+.left-column {
+  flex: 1; /* Takes up as much space as needed */
+  background: transparent; /* Transparent background */
+  padding: 20px;
+  border-right: 1px solid #ddd; /* Optional border for separation */
+  text-align: left;
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.right-column {
+  flex: 2; /* Takes up more space than left column */
+  background: transparent; /* Transparent background */
+  padding: 20px;
+  margin-top: 50px;
+  max-width: 600px;
+  background-color: transparent; /* Make the right column transparent */
+  text-align: left;
+}
+
+/* Responsive Styles */
+@media (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-column {
+    border-right: none; /* Remove border when columns are stacked */
+    border-bottom: 1px solid #ddd; /* Add border at the bottom for separation */
+  }
+
+  .right-column {
+    margin-top: 20px; /* Space between stacked columns */
+  }
+}
+
 </style>

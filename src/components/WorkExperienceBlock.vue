@@ -54,10 +54,13 @@ export default {
 .work-left {
     font-size: 12px;
     width: 30%;
+    min-width: 150px;
+    max-width: 150px;
 }
 
 .work-right {
     width: 65%;
+    align: left;
 }
 
 .role {
