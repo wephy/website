@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 export default {
   name: 'WorkExperienceBlock',
   data() {
