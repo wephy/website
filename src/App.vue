@@ -151,9 +151,9 @@ body {
   width: 200vw;
   height: 200vh;
   z-index: -1; /* Make sure it's below the radial circle */
-  background: linear-gradient(-45deg, #eee9f4, #eeeaf3, #eee9f4, #eeeaf3);
-	background-size: 100% 100%;
-	animation: gradient 30s ease infinite;
+  background: linear-gradient(-45deg, #add8e6, #d2daf3, #51c4ff, #f5b3af);
+	background-size: 200% 200%;
+	animation: gradient 10s ease infinite;
 }
 
 @keyframes gradient {
