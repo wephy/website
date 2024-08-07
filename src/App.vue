@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script>
 import LeftColumn from './components/LeftColumn.vue';
 import RightColumn from './components/RightColumn.vue';
 

@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script>
 import DescriptionBlock from './DescriptionBlock.vue';
 import WorkExperienceBlock from './WorkExperienceBlock.vue';
 import LinksBlock from './LinksBlock.vue';
