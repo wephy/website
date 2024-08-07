@@ -1,0 +1,1 @@
+import{w as a,n as t}from"./components-gcfCxD1_.js";function s(){return{message:"I'm the blah"}}function n(){const e=a();return t.jsx("h1",{children:e.message})}export{s as clientLoader,n as default};
