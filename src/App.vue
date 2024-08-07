@@ -1,5 +1,3 @@
-<script setup lang="ts">
-
 <template>
   <div id="app" @mousemove="handleMouseMove">
   <div class="background-overlay"></div>
