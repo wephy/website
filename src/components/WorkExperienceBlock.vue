@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       experiences: [
-        { id: 1, dateRange: 'MAY 2023 — PRESENT', company: '@ University of Warwick, Department of PHysics', role: 'URSS Researcher', job: 'The Undergraduate Research Support Scheme to carry out a self-directed research project. This largly focused on "Large-Angle Convergent-Beam Electron Diffraction Patterns via Conditional Generative Adversarial Networks", supervised by Prof. Rudolf Roemer.'},
+        { id: 1, dateRange: 'MAY 2023 — PRESENT', company: '@ University of Warwick, Department of Physics', role: 'URSS Researcher', job: 'Received funding under the Undergraduate Research Support Scheme to carry out a self-directed research project. This largly focused on "Large-Angle Convergent-Beam Electron Diffraction Patterns via Conditional Generative Adversarial Networks", supervised by Prof. Rudolf Roemer.'},
         { id: 2, dateRange: 'JUN 2021 — JUN 2021', company: '@ UK Government, Department of Digital, Culture, Media & Sport', role: 'Information, Technology Support Technician', job: 'Provided 1st- and 2nd-line support for DCMS'},
         { id: 3, dateRange: 'FEB 2020 — Sep 2020', company: '@ The Economist', role: 'Information Technology Operations Analyst', job: 'Developed PowerShell scripts and an application to automate administrative tasks. Created/maintained documentation'},
         { id: 4, dateRange: 'FEB 2019 — OCT 2019', company: '@ Selfridges & Co.', role: 'Computer Services Analyst', job: 'Extracted and performed data analysis from Active Directory. Created a PowerShell GUI program for the team to perform device management'},
@@ -66,12 +66,14 @@ export default {
 .role {
     font-size: 18px;
     color: #26293A;
+    line-height: 1.3;
+    margin-bottom: 25px;
 }
 
 .company {
     margin-top: -20px;
     font-size: 18px;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .job {

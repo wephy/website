@@ -3,15 +3,25 @@
 
 <template>
   <div class="left-column">
-    <h1>Joseph Webb</h1>
-    <h2>MSc Student at the University of Oxford</h2>
-    <p>Studying Mathematical Modelling and Scientific Computing asd asd asd as</p>
+    <div class="name">
+        <p>Joseph Webb</p>
+    </div>
+    <div class="title">
+        <p>Mathematician and Physicist</p>
+    </div>
+    <div class="brief">
+        <p>MSc Student at the University of Oxford in Mathematical Modelling and Scientific Computing</p>
+    </div>
     <!-- <img class="portrait" src="../assets/PORTRAIT.png"/> -->
-    <ul>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#experience">EXPERIENCE</a></li>
-      <li><a href="#projects">PROJECTS</a></li>
-    </ul>
+    <div class=overview>
+        <a class="overview-link" href="#about">ABOUT</a>
+        <br>
+        <br>
+        <a class="overview-link" href="#experience">EXPERIENCE</a>
+        <br>
+        <br>
+        <a class="overview-link" href="#projects">PROJECTS</a>
+    </div>
   </div>
 </template>
 
@@ -31,16 +41,42 @@ export default {
     border-radius: 10%;
 }
 
-.left-column h1{
+.name {
   font-family: Amulya-Bold;
   font-size: 48px;
   color: #26293A;
 }
 
-.left-column h2{
-  margin-top: -25px;
-  font-family: Amulya-Medium;
+.title {
+  margin-top: -50px;
+  font-family: Amulya-Regular;
   color: #26293A;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.overview {
+    margin-top: 50px;
+}
+
+.overview-link {
+    color: #26293A;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    padding-left: 20px; /* Initial space for the line */
+    transition: padding-left 0.3s ease;
+}
+
+.overview-link:hover {
+    padding-left: 40px; /* Space when hovered to move the text */
+}
+
+.overview-link:hover {
+    width: 100%;
+    width: 30px; /* Line width when hovered */
 }
 
 </style>
