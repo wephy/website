@@ -114,6 +114,7 @@ body {
   }
 
   .left-column {
+    margin-top: -60px;
     position: relative; /* Reset positioning for narrow screens */
     width: 100%;
     height: auto; /* Allow height to be auto-adjusted */
