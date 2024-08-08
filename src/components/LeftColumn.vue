@@ -31,7 +31,9 @@
         </a>
         
     </div>
-    <img class="portrait" src="../assets/warwick-grad.jpg"/>
+    <div class="left-image">
+        <img class="portrait" src="../assets/warwick-grad.jpg"/>
+    </div>
   </div>
 </template>
 
@@ -48,15 +50,17 @@ export default {
     width: 300px;
     display: block;
     margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 20px;
     border-radius: 10%;
+    position: relative;
+    z-index: 999;
 }
 
 .name {
   font-family: ZT Chintzy Bold;
   font-size: 48px;
   color: #2150CE;
+  z-index: 1;
 }
 
 .brief {

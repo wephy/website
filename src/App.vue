@@ -3,7 +3,10 @@
 
 <template>
   <div id="app" @mousemove="handleMouseMove">
+
+    <div class="mouse-overlay2" :style="overlayStyle"></div>
     <div class="mouse-overlay" :style="overlayStyle"></div>
+    
     <div class="backup-background"></div>
     <div class="background-overlay"></div>
     <div class="container">
@@ -92,9 +95,9 @@ body {
   background: transparent;
   padding: 20px;
   overflow: hidden; /* Handle overflow if needed */
-  z-index: 1; /* Ensure it's on top */
   margin-top: 55px;
   margin-left: 40px;
+  z-index: 1;
 }
 
 .right-column {
@@ -107,6 +110,7 @@ body {
   background-color: transparent; /* Make the right column transparent */
   text-align: left;
   width: 550px;
+  z-index: 1;
 }
 
 /* Responsive Styles */
@@ -135,8 +139,20 @@ body {
   }
 }
 
-
 .mouse-overlay {
+  position: fixed;
+  pointer-events: none; /* Ensure it doesn’t block clicks */
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgb(255,217,128,1) 0%, rgb(255,217,128, 0) 30%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%); /* Center the circle */
+  background-blend-mode: luminosity;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.mouse-overlay2 {
   position: fixed;
   pointer-events: none; /* Ensure it doesn’t block clicks */
   width: 1000px;
@@ -145,6 +161,7 @@ body {
   border-radius: 50%;
   transform: translate(-50%, -50%); /* Center the circle */
   mix-blend-mode: multiply; /* Optional: blend the circle with the background */
+  z-index: 0;
 }
 
 .background-overlay {
