@@ -32,11 +32,6 @@ li {
   margin-bottom: 10px;
 }
 
-a {
-  color: #3498db;
-  text-decoration: none;
-}
-
 a:hover {
   text-decoration: underline;
 }
