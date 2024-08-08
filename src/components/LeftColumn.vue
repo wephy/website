@@ -90,7 +90,7 @@ export default {
   display: inline-block;
   width: 20px;
   /* Initial width of the dash */
-  height: 1.5px;
+  height: 0.2px;
   /* Thickness of the dash */
   background-color: black;
   /* Color of the dash */
