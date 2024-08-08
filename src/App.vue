@@ -154,7 +154,7 @@ body {
   width: 1500px;
   height: 1500px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 234, 8, 0.5), transparent);
+  background: radial-gradient(circle, rgba(255, 206, 8, 0.3), transparent);
   mask-image: radial-gradient(circle, black, transparent 40%);
   mix-blend-mode: multiply;
 }
@@ -166,7 +166,7 @@ body {
   width: 1000px;
   height: 1000px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(253, 211, 20, 0.5), transparent);
+  background: radial-gradient(circle, rgba(244, 185, 9, 0.3), transparent);
   mask-image: radial-gradient(circle, black, transparent 40%);
   mix-blend-mode: multiply;
 }
