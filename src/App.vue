@@ -7,8 +7,7 @@
     <div class="mouse-overlay2" :style="overlayStyle"></div>
     <div class="mouse-overlay" :style="overlayStyle"></div>
 
-    <div class="backup-background"></div>
-    <div class="background-overlay"></div>
+    <div class="background"></div>
     <div class="container">
       <LeftColumn />
       <RightColumn />
@@ -102,7 +101,7 @@ body {
   padding: 20px;
   overflow: hidden;
   /* Handle overflow if needed */
-  margin-top: 55px;
+  margin-top: 50px;
   margin-left: 40px;
   z-index: 1;
 }
@@ -113,7 +112,7 @@ body {
   /* Takes up more space than left column */
   background: transparent;
   /* Transparent background */
-  margin-top: 50px;
+  margin-top: 40px;
   margin-left: 400px;
   text-align: left;
   width: 450px;
@@ -179,31 +178,16 @@ body {
   z-index: 0;
 }
 
-.background-overlay {
+.background {
   position: fixed;
   /* Ensure it covers the entire viewport */
-  top: -50vw;
-  left: -50vh;
-  width: 200vw;
-  height: 200vh;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
   z-index: -2;
   /* Make sure it's below the radial circle */
   background: #f9f3db;
-  background-size: 200% 200%;
-}
-
-.background-overlay {
-  position: fixed;
-  /* Ensure it covers the entire viewport */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  /* Make sure it's below the radial circle */
-  background: linear-gradient(-45deg, #ffdfd4, #f9f3db, #ffefd5, #fff8e7, #f0ead6);
-  background-size: 200% 200%;
-  animation: gradient 10s ease infinite;
 }
 
 @keyframes gradient {
