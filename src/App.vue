@@ -16,6 +16,8 @@
 import LeftColumn from './components/LeftColumn.vue';
 import RightColumn from './components/RightColumn.vue';
 
+
+
 export default {
   components: {
     LeftColumn,
@@ -75,7 +77,7 @@ html, body {
 body {
   margin: 0;
   font-family: Prociono;
-  color: #3e4a6a;
+  color: #191a25;
   font-size: 20px;
 }
 
@@ -85,10 +87,10 @@ body {
   position: fixed;
   top: 0;
   width: 350px; /* Adjust width as needed */
-  height: 100vh; /* Full viewport height */
+  height: 100%; /* Full viewport height */
   background: transparent;
   padding: 20px;
-  overflow: auto; /* Handle overflow if needed */
+  overflow: hidden; /* Handle overflow if needed */
   z-index: 1; /* Ensure it's on top */
   margin-top: 55px;
   margin-left: 40px;

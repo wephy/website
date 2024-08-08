@@ -3,7 +3,7 @@
 
 <template>
   <div id="about" class="block">
-    <div class="block desc">
+    <div class="block-desc">
     <p>
     There is a prevailing sentiment in chess that the synergy of human and machine is the 
     strongest entity, surpassing that of either alone. I believe this idea transcends: if one 
@@ -30,7 +30,7 @@ export default {
 <style>
 
 .block {
-    margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 </style>

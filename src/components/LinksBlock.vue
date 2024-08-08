@@ -3,12 +3,7 @@
 
 <template>
   <div id="projects" class="block">
-    <h2>Projects</h2>
-    <ul>
-      <li v-for="link in links" :key="link.id">
-        <a :href="link.url" target="_blank" rel="noopener">{{ link.name }}</a>
-      </li>
-    </ul>
+
   </div>
 </template>
 

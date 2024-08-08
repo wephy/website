@@ -9,28 +9,34 @@
     <div class="brief">
         <p>MSc Student at the University of Oxford in Mathematical Modelling and Scientific Computing</p>
     </div>
-    <!-- <img class="portrait" src="../assets/PORTRAIT.png"/> -->
     <div class=overview>
         <a class="overview-link" href="#about">
             <div class="stretch-dash"></div>
             <span> ABOUT</span>
-        </a>
-        <br><br>
+        </a><br>
+        
+        <a class="overview-link" href="#education">
+            <div class="stretch-dash"></div>
+            <span> EDUCATION</span>
+        </a><br>
+        
         <a class="overview-link" href="#experience">
             <div class="stretch-dash"></div>
             <span> EXPERIENCE</span>
-        </a>
-        <br><br>
+        </a><br>
+        
         <a class="overview-link" href="#projects">
             <div class="stretch-dash"></div>
             <span> PROJECTS</span>
         </a>
-        <br><br>
+        
     </div>
+    <img class="portrait" src="../assets/warwick-grad.jpg"/>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'LeftColumn',
 };
@@ -39,8 +45,9 @@ export default {
 <style>
 
 .portrait {
-    width: 100vw;
+    width: 300px;
     display: block;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10%;
@@ -49,7 +56,7 @@ export default {
 .name {
   font-family: ZT Chintzy;
   font-size: 48px;
-  color: #1b1c23;
+  color: #2150CE;
 }
 
 .brief {
@@ -59,11 +66,12 @@ export default {
 }
 
 .overview {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .overview-link {
-  color: #1b1c23;
+  margin-top: 30px;
+  color: #2150CE;
   text-decoration: none;
   font-family: ZT Chintzy;
   font-size: 18px;
@@ -86,7 +94,7 @@ export default {
 }
 
 .overview-link:hover .stretch-dash {
-  width: 50px; /* Width of the dash on hover */
+  width: 60px; /* Width of the dash on hover */
 }
 
 </style>

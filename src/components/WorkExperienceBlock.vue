@@ -2,7 +2,25 @@
 </script>
 
 <template>
-  <div id="experience" class="work-experience">
+  <div id="education" class="education">
+    <div class="work-item" v-for="education in educations" :key="education.id">
+        <div class="column work-left">
+            <p>{{ education.dateRange }}</p>
+        </div>
+        <div class="column work-right">
+            <div class="role">
+                <p>{{ education.role }}</p>
+            </div>
+            <div class="company">
+                <p>{{ education.company }}</p>
+            </div>
+            <div class="job">
+                <p>{{ education.job }}</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div id="experience" class="experience">
     <div class="work-item" v-for="experience in experiences" :key="experience.id">
         <div class="column work-left">
             <p>{{ experience.dateRange }}</p>
@@ -27,6 +45,10 @@ export default {
   name: 'WorkExperienceBlock',
   data() {
     return {
+      educations: [
+        { id: 1, dateRange: 'SEP 2024 — PRESENT', company: '@ University of Oxford', role: 'MSc Mathematical Modelling and Scientific Computing', job: 'The Masters in Mathematical Sciences Scholar and MMSC Bursary Recipient for Academic Excellence'},
+        { id: 2, dateRange: 'SEP 2021 — JUN 2024', company: '@ University of Warwick', role: 'BSc Mathematics and Physics', job: 'Grade: First Class.'},
+      ],
       experiences: [
         { id: 1, dateRange: 'MAY 2023 — PRESENT', company: '@ University of Warwick, Department of Physics', role: 'URSS Researcher', job: 'Received funding under the Undergraduate Research Support Scheme to carry out a self-directed research project. This largly focused on "Large-Angle Convergent-Beam Electron Diffraction Patterns via Conditional Generative Adversarial Networks", supervised by Prof. Rudolf Roemer.'},
         { id: 2, dateRange: 'JUN 2021 — JUN 2021', company: '@ UK Government, Department of Digital, Culture, Media & Sport', role: 'Information, Technology Support Technician', job: 'Provided 1st- and 2nd-line support for DCMS'},
@@ -40,6 +62,14 @@ export default {
 </script>
 
 <style>
+
+.education {
+  margin-top: 50px;
+}
+
+.experience {
+  margin-top: 50px;
+}
 
 .column {
     display: inline-block;
@@ -64,21 +94,20 @@ export default {
 }
 
 .role {
-    font-size: 18px;
+    font-size: 20px;
     color: #33AD63;
     line-height: 1.3;
-    margin-bottom: 25px;
     font-family: ZT Chintzy;
 }
 
 .company {
-    margin-top: -20px;
-    font-size: 18px;
+    margin-top: -15px;
+    font-size: 20px;
     line-height: 1.2;
 }
 
 .job {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 </style>
