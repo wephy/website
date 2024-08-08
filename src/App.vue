@@ -121,7 +121,7 @@ body {
     width: 100%;
     height: auto; /* Allow height to be auto-adjusted */
     margin-right: 0px;
-    margin-left: 0px;
+    margin-left: -30px;
     max-width: 500px;
   }
 
