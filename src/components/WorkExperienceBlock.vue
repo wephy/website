@@ -94,7 +94,7 @@ export default {
 
 .work-right {
     width: 65%;
-    align: left;
+    min-width: 200px;
 }
 
 .role {
@@ -116,6 +116,18 @@ export default {
     font-size: 16px;
     margin-top: -10px;
     margin-bottom: 30px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1000px) {
+  .work-left {
+      width: 90%;
+  }
+
+  .work-right {
+      width: 90%;
+  }
 }
 
 </style>

@@ -104,17 +104,15 @@ body {
   text-align: left;
   flex: 2; /* Takes up more space than left column */
   background: transparent; /* Transparent background */
-  padding: 20px;
-  margin-top: 30px;
-  margin-left: 320px;
-  background-color: transparent; /* Make the right column transparent */
+  margin-top: 50px;
+  margin-left: 400px;
   text-align: left;
-  width: 550px;
+  width: 450px;
   z-index: 1;
 }
 
 /* Responsive Styles */
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   .container {
     flex-direction: column;
     align-items: center; 
