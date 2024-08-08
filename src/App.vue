@@ -3,11 +3,8 @@
 
 <template>
   <div id="app" @mousemove="handleMouseMove">
-    <div class="mouse-overlay" :style="overlayStyle">
-      <div class="circle">
-
-      </div>
-    </div>
+    <div class="mouse-overlay1" :style="overlayStyle"></div>
+    <div class="mouse-overlay2" :style="overlayStyle"></div>
 
     <div class="background"></div>
     <div class="container">
@@ -151,21 +148,27 @@ body {
 }
 
 
-.mouse-overlay {
+.mouse-overlay1 {
   position: fixed;
   pointer-events: none;
   width: 1500px;
   height: 1500px;
   transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 234, 8, 0.5), transparent);
   mask-image: radial-gradient(circle, black, transparent 40%);
-  border-radius: 50%;
   mix-blend-mode: multiply;
 }
 
-.circle {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, #ffc83d, transparent);
+
+.mouse-overlay2 {
+  position: fixed;
+  pointer-events: none;
+  width: 1000px;
+  height: 1000px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(253, 211, 20, 0.5), transparent);
+  mask-image: radial-gradient(circle, black, transparent 40%);
+  mix-blend-mode: multiply;
 }
 
 .background {
