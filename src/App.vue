@@ -4,6 +4,7 @@
 <template>
   <div id="app" @mousemove="handleMouseMove">
     <div class="mouse-overlay" :style="overlayStyle"></div>
+    <div class="backup-background"></div>
     <div class="background-overlay"></div>
     <div class="container">
       <LeftColumn/>
@@ -148,14 +149,25 @@ body {
 
 .background-overlay {
   position: fixed; /* Ensure it covers the entire viewport */
-  top: 0;
-  left: 0;
+  top: -50vw;
+  left: -50vh;
   width: 200vw;
   height: 200vh;
-  z-index: -1; /* Make sure it's below the radial circle */
-  background: linear-gradient(-45deg, #f9f3db, #ffefd5, #fff8e7, #f0ead6);
+  z-index: -2; /* Make sure it's below the radial circle */
+  background: #f9f3db;
 	background-size: 200% 200%;
-	animation: gradient 15s ease infinite;
+}
+
+.background-overlay {
+  position: fixed; /* Ensure it covers the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Make sure it's below the radial circle */
+  background: linear-gradient(-45deg, #ffdfd4, #f9f3db, #ffefd5, #fff8e7, #f0ead6);
+	background-size: 200% 200%;
+	animation: gradient 10s ease infinite;
 }
 
 @keyframes gradient {
@@ -163,10 +175,10 @@ body {
 		background-position: 0% 50%;
 	}
 	50% {
-		background-position: 100% 50%;
+		background-position: 100% 70%;
 	}
 	100% {
-		background-position: 0% 50%;
+		background-position: 0% 20%;
 	}
 }
 
