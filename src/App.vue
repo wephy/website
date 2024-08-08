@@ -3,8 +3,11 @@
 
 <template>
   <div id="app" @mousemove="handleMouseMove">
+    <div class="mouse-overlay" :style="overlayStyle">
+      <div class="circle">
 
-    <div class="mouse-overlay" :style="overlayStyle"></div>
+      </div>
+    </div>
 
     <div class="background"></div>
     <div class="container">
@@ -147,18 +150,22 @@ body {
   }
 }
 
+
 .mouse-overlay {
   position: fixed;
   pointer-events: none;
-  width: 1000px;
-  height: 1000px;
-  background:
-    radial-gradient(circle, rgb(255, 217, 128, 10) 5%, transparent 60%),
-    url(https://grainy-gradients.vercel.app/noise.svg);
-  border-radius: 50%;
+  width: 1500px;
+  height: 1500px;
   transform: translate(-50%, -50%);
+  mask-image: radial-gradient(circle, black, transparent 40%);
+  border-radius: 50%;
   mix-blend-mode: multiply;
-  z-index: 0;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #ffc83d, transparent);
 }
 
 .background {
