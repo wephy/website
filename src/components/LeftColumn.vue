@@ -32,7 +32,7 @@
 
     </div>
     <div class="left-image">
-      <img class="portrait" src="../assets/warwick-grad.jpg" />
+      <!-- <img class="portrait" src="../assets/warwick-grad.jpg" /> -->
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@ export default {
 
 <style>
 .portrait {
-  width: 300px;
+  width: 200px;
   display: block;
   margin-top: 50px;
   margin-left: 20px;

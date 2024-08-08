@@ -119,7 +119,8 @@ body {
 }
 
 /* Responsive Styles */
-@media (max-width: 1000px) {
+@media (max-width: 1000px),
+(max-height: 800px) {
   .container {
     flex-direction: column;
     align-items: center;
