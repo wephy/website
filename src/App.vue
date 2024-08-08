@@ -4,7 +4,6 @@
 <template>
   <div id="app" @mousemove="handleMouseMove">
 
-    <div class="mouse-overlay2" :style="overlayStyle"></div>
     <div class="mouse-overlay" :style="overlayStyle"></div>
 
     <div class="background"></div>
@@ -151,30 +150,14 @@ body {
 .mouse-overlay {
   position: fixed;
   pointer-events: none;
-  /* Ensure it doesn’t block clicks */
   width: 1000px;
   height: 1000px;
-  background: radial-gradient(circle, rgb(255, 217, 128, 1) 0%, rgb(255, 217, 128, 0) 30%);
+  background:
+    radial-gradient(circle, rgb(255, 217, 128, 10) 5%, transparent 60%),
+    url(https://grainy-gradients.vercel.app/noise.svg);
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  /* Center the circle */
-  background-blend-mode: luminosity;
-  opacity: 0.5;
-  z-index: 1;
-}
-
-.mouse-overlay2 {
-  position: fixed;
-  pointer-events: none;
-  /* Ensure it doesn’t block clicks */
-  width: 1000px;
-  height: 1000px;
-  background: radial-gradient(circle, rgb(255, 217, 128, 50) 0%, rgb(255, 217, 128, 10) 5%, rgb(255, 217, 128, 0) 60%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  /* Center the circle */
   mix-blend-mode: multiply;
-  /* Optional: blend the circle with the background */
   z-index: 0;
 }
 
