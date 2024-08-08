@@ -97,13 +97,14 @@ export default {
     font-size: 20px;
     color: #33AD63;
     line-height: 1.3;
-    font-family: ZT Chintzy;
+    font-family: ZT Chintzy Bold;
 }
 
 .company {
     margin-top: -15px;
     font-size: 20px;
     line-height: 1.2;
+    font-family: ZT Chintzy Reg;
 }
 
 .job {

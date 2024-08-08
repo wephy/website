@@ -1,4 +1,13 @@
 @font-face {
+  font-family: 'Absans';
+  src: url('../fonts/Absans-Regular.woff2') format('woff2'),
+      url('../fonts/Absans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Prociono';
   src: url('../fonts/Prociono-Regular-webfont.woff2') format('woff2'),
       url('../fonts/Prociono-Regular-webfont.woff') format('woff');
@@ -7,18 +16,17 @@
   font-display: swap;
 }
 
-
 @font-face {
-  font-family: 'ZT Chintzy';
+  font-family: 'ZT Chintzy Black';
   src: url('../fonts/ZTChintzy-Black.woff2') format('woff2'),
       url('../fonts/ZTChintzy-Black.woff') format('woff');
   font-weight: 900;
-  font-style: normal;
+  font-style: black;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'ZT Chintzy';
+  font-family: 'ZT Chintzy Bold';
   src: url('../fonts/ZTChintzy-Bold.woff2') format('woff2'),
       url('../fonts/ZTChintzy-Bold.woff') format('woff');
   font-weight: bold;
@@ -27,97 +35,7 @@
 }
 
 @font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Black.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Bold.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Bold.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Black.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Heavy Ita';
-  src: url('../fonts/ZTChintzy-HeavyItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-HeavyItalic.woff') format('woff');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy ExtBd Ita';
-  src: url('../fonts/ZTChintzy-ExtraBoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ExtraBoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy ExtBd';
-  src: url('../fonts/ZTChintzy-ExtraBold.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ExtraBold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy ExtBd Ita';
-  src: url('../fonts/ZTChintzy-ExtraBoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ExtraBoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Ita';
-  src: url('../fonts/ZTChintzy-Italic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Light.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
+  font-family: 'ZT Chintzy Heavy';
   src: url('../fonts/ZTChintzy-Heavy.woff2') format('woff2'),
       url('../fonts/ZTChintzy-Heavy.woff') format('woff');
   font-weight: 900;
@@ -135,16 +53,7 @@
 }
 
 @font-face {
-  font-family: 'ZT Chintzy Ita';
-  src: url('../fonts/ZTChintzy-Italic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
+  font-family: 'ZT Chintzy Light';
   src: url('../fonts/ZTChintzy-Light.woff2') format('woff2'),
       url('../fonts/ZTChintzy-Light.woff') format('woff');
   font-weight: 300;
@@ -153,145 +62,10 @@
 }
 
 @font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Heavy.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Heavy.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Heavy.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Heavy.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Ita';
-  src: url('../fonts/ZTChintzy-BoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy ExtBd Ita';
-  src: url('../fonts/ZTChintzy-ExtraBoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ExtraBoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Light Ita';
-  src: url('../fonts/ZTChintzy-LightItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-LightItalic.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Heavy Ita';
-  src: url('../fonts/ZTChintzy-HeavyItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-HeavyItalic.woff') format('woff');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Light Ita';
-  src: url('../fonts/ZTChintzy-LightItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-LightItalic.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Light Ita';
-  src: url('../fonts/ZTChintzy-LightItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-LightItalic.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy ExtBd';
-  src: url('../fonts/ZTChintzy-ExtraBold.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ExtraBold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Heavy Ita';
-  src: url('../fonts/ZTChintzy-HeavyItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-HeavyItalic.woff') format('woff');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Ita';
-  src: url('../fonts/ZTChintzy-BoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Ita';
-  src: url('../fonts/ZTChintzy-BoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Ita';
-  src: url('../fonts/ZTChintzy-Italic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Light.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Regular.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Med';
-  src: url('../fonts/ZTChintzy-Medium.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Medium.woff') format('woff');
-  font-weight: 500;
+  font-family: 'ZT Chintzy Thin';
+  src: url('../fonts/ZTChintzy-Thin.woff2') format('woff2'),
+      url('../fonts/ZTChintzy-Thin.woff') format('woff');
+  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
@@ -315,154 +89,10 @@
 }
 
 @font-face {
-  font-family: 'ZT Chintzy SemBd Ita';
-  src: url('../fonts/ZTChintzy-SemiBoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-SemiBoldItalic.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Thin.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Thin.woff') format('woff');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Med Ita';
-  src: url('../fonts/ZTChintzy-MediumItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy SemBd';
-  src: url('../fonts/ZTChintzy-SemiBold.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-SemiBold.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy SemBd Ita';
-  src: url('../fonts/ZTChintzy-SemiBoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-SemiBoldItalic.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Med';
-  src: url('../fonts/ZTChintzy-Medium.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
+  font-family: 'ZT Chintzy Reg';
   src: url('../fonts/ZTChintzy-Regular.woff2') format('woff2'),
       url('../fonts/ZTChintzy-Regular.woff') format('woff');
   font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy SemBd Ita';
-  src: url('../fonts/ZTChintzy-SemiBoldItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-SemiBoldItalic.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Med Ita';
-  src: url('../fonts/ZTChintzy-MediumItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy SemBd';
-  src: url('../fonts/ZTChintzy-SemiBold.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-SemiBold.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Med Ita';
-  src: url('../fonts/ZTChintzy-MediumItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Regular.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Thin Ita';
-  src: url('../fonts/ZTChintzy-ThinItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ThinItalic.woff') format('woff');
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Thin.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Thin.woff') format('woff');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Thin Ita';
-  src: url('../fonts/ZTChintzy-ThinItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ThinItalic.woff') format('woff');
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy Thin Ita';
-  src: url('../fonts/ZTChintzy-ThinItalic.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-ThinItalic.woff') format('woff');
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'ZT Chintzy';
-  src: url('../fonts/ZTChintzy-Thin.woff2') format('woff2'),
-      url('../fonts/ZTChintzy-Thin.woff') format('woff');
-  font-weight: 100;
   font-style: normal;
   font-display: swap;
 }

@@ -54,7 +54,7 @@ export default {
 }
 
 .name {
-  font-family: ZT Chintzy;
+  font-family: ZT Chintzy Bold;
   font-size: 48px;
   color: #2150CE;
 }
@@ -73,7 +73,7 @@ export default {
   margin-top: 30px;
   color: #2150CE;
   text-decoration: none;
-  font-family: ZT Chintzy;
+  font-family: ZT Chintzy Reg;
   font-size: 18px;
   position: relative;
   display: inline-block;

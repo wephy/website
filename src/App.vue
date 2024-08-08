@@ -76,7 +76,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Prociono;
+  font-family: Absans;
   color: #191a25;
   font-size: 20px;
 }
@@ -105,7 +105,7 @@ body {
   margin-left: 320px;
   background-color: transparent; /* Make the right column transparent */
   text-align: left;
-  width: 500px;
+  width: 550px;
 }
 
 /* Responsive Styles */
