@@ -4,7 +4,9 @@
 <template>
   <div class="left-column">
     <div class="name">
-      <p>Joseph Webb</p>
+      <a class="main-link" href="/">
+        <p>Joseph Webb</p>
+      </a>
     </div>
     <div class="brief">
       <p>MSc Student at the University of Oxford in Mathematical Modelling and Scientific Computing</p>
@@ -55,11 +57,16 @@ export default {
   z-index: 999;
 }
 
-.name {
+.main-link {
+  color: #2150CE;
   font-family: ZT Chintzy Bold;
   font-size: 48px;
-  color: #2150CE;
-  z-index: 1;
+}
+
+.main-link:hover {
+  color: #33AD63;
+  font-family: ZT Chintzy Bold;
+  font-size: 48px;
 }
 
 .brief {

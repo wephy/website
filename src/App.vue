@@ -3,8 +3,8 @@
 
 <template>
   <div id="app" @mousemove="handleMouseMove">
-    <div class="mouse-overlay1" :style="overlayStyle"></div>
     <div class="mouse-overlay2" :style="overlayStyle"></div>
+    <div class="mouse-overlay1" :style="overlayStyle"></div>
 
     <div class="background"></div>
     <div class="container">
@@ -27,29 +27,53 @@ export default {
   data() {
     return {
       mouseX: 0,
-      mouseY: 0
+      mouseY: 0,
+      currentX: 0, // Current X position for smoothing
+      currentY: 0, // Current Y position for smoothing
+      animationFrame: 0 // Store animation frame for cleanup
     };
   },
   computed: {
     overlayStyle() {
       return {
-        left: `${this.mouseX}px`,
-        top: `${this.mouseY}px`,
-        transform: 'translate(-50%, -50%)'
+        // Set left and top based on the smoothed positions
+        left: `${this.currentX}px`,
+        top: `${this.currentY}px`,
+        transform: 'translate(-50%, -50%)' // Center the overlay
       };
     }
   },
   methods: {
     handleMouseMove(event: MouseEvent) {
+      // Update target mouse coordinates
       this.mouseX = event.clientX;
       this.mouseY = event.clientY;
+    },
+    animateOverlay() {
+      // Linear interpolation factor for smoothing
+      const lerpFactor = 0.05;
+
+      // Smoothly interpolate the current position
+      this.currentX += (this.mouseX - this.currentX) * lerpFactor;
+      this.currentY += (this.mouseY - this.currentY) * lerpFactor;
+
+      // Request the next animation frame
+      this.animationFrame = requestAnimationFrame(this.animateOverlay);
     }
   },
   mounted() {
+    // Attach mousemove event listener
     window.addEventListener('mousemove', this.handleMouseMove);
+
+    // Start the animation loop
+    this.animateOverlay();
   },
   beforeUnmount() {
+    // Remove mousemove event listener
     window.removeEventListener('mousemove', this.handleMouseMove);
+
+    // Cancel the animation frame to prevent memory leaks
+    cancelAnimationFrame(this.animationFrame);
   }
 };
 
@@ -120,7 +144,7 @@ body {
 
 /* Responsive Styles */
 @media (max-width: 1000px),
-(max-height: 800px) {
+(max-height: 600px) {
   .container {
     flex-direction: column;
     align-items: center;
@@ -149,28 +173,30 @@ body {
 }
 
 
-.mouse-overlay1 {
+/* .mouse-overlay1 {
   position: fixed;
   pointer-events: none;
-  width: 1500px;
-  height: 1500px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 206, 8, 0.3), transparent);
-  mask-image: radial-gradient(circle, black, transparent 40%);
-  mix-blend-mode: multiply;
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, rgba(255, 176, 4, 0.1), transparent);
+  mask-image: radial-gradient(circle, black, transparent 50%);
+  mix-blend-mode: darken;
+  will-change: transform;
+  z-index: 2;
 }
 
 
 .mouse-overlay2 {
   position: fixed;
   pointer-events: none;
-  width: 1000px;
-  height: 1000px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(244, 185, 9, 0.3), transparent);
-  mask-image: radial-gradient(circle, black, transparent 40%);
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, rgb(255, 243, 197), transparent);
+  mask-image: radial-gradient(circle, black, transparent 50%);
   mix-blend-mode: multiply;
-}
+  will-change: transform;
+  z-index: 0;
+} */
 
 .background {
   position: fixed;
@@ -181,7 +207,7 @@ body {
   height: 300%;
   z-index: -2;
   /* Make sure it's below the radial circle */
-  background: #f9f3db;
+  background: #e5f6ff;
 }
 
 @keyframes gradient {
