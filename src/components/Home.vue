@@ -81,8 +81,6 @@ export default {
 
 <style>
 #home {
-    display: flex;
-    justify-content: center;
     /* Center horizontally */
     align-items: flex-start;
     /* Align items at the top */

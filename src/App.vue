@@ -11,11 +11,9 @@
 #app {
   height: 100%;
   width: 100%;
-  overflow: hidden;
   margin: 0px;
   padding: 0PX;
-  /* display: flex;
-  justify-content: center; */
+  justify-content: center;
   font-family: 'Alegreya Sans';
   color: #191a25;
 }
