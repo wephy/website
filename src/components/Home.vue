@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts">
-import LeftColumn from './LeftColumn.vue';
-import RightColumn from './RightColumn.vue';
+import LeftColumn from './home/LeftColumn.vue';
+import RightColumn from './home/RightColumn.vue';
 
 
 export default {
@@ -102,14 +102,6 @@ export default {
 html,
 body {
     scroll-behavior: smooth;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
-
-body {
-    margin: 0;
-    font-family: 'Alegreya Sans';
-    color: #191a25;
     font-size: 20px;
 }
 
@@ -136,7 +128,7 @@ body {
     /* Takes up more space than left column */
     background: transparent;
     /* Transparent background */
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 400px;
     text-align: left;
     width: 450px;
