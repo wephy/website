@@ -1,22 +1,4 @@
 @font-face {
-  font-family: 'Absans';
-  src: url('../fonts/Absans-Regular.woff2') format('woff2'),
-      url('../fonts/Absans-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Prociono';
-  src: url('../fonts/Prociono-Regular-webfont.woff2') format('woff2'),
-      url('../fonts/Prociono-Regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'ZT Chintzy Black';
   src: url('../fonts/ZTChintzy-Black.woff2') format('woff2'),
       url('../fonts/ZTChintzy-Black.woff') format('woff');
