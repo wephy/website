@@ -86,6 +86,7 @@ export default {
     /* Align items at the top */
     min-height: 100vh;
     /* Full viewport height */
+    overflow: visible;
 }
 
 .container {
@@ -95,12 +96,6 @@ export default {
     /* Center columns horizontally */
     width: 100%;
     box-sizing: border-box;
-}
-
-html,
-body {
-    scroll-behavior: smooth;
-    font-size: 20px;
 }
 
 .left-column {
@@ -126,7 +121,7 @@ body {
     /* Takes up more space than left column */
     background: transparent;
     /* Transparent background */
-    margin-top: 10px;
+    margin-top: 110px;
     margin-left: 400px;
     text-align: left;
     width: 450px;
@@ -142,7 +137,7 @@ body {
     }
 
     .left-column {
-        margin-top: -60px;
+        margin-top: 50px;
         position: relative;
         /* Reset positioning for narrow screens */
         width: 100%;
