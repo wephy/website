@@ -9,7 +9,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {path: "/", name: "Home", component: Home},
-        {path: "/warwick-certificate", name: "WarwickCertificate", component: WarwickCertificate}
+        {path: "/warwick-certificate.pdf", name: "WarwickCertificate", component: WarwickCertificate}
     ]
 })
 
