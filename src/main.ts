@@ -6,7 +6,7 @@ import Home from './components/Home.vue'
 import WarwickCertificate from './components/WarwickCertificate.vue'
 
 const router = createRouter({
-    history: createWebHistory('https://github.io/wephy/website'),
+    history: createWebHistory(),
     routes: [
         {path: "/", name: "Home", component: Home},
         {path: "/warwick-certificate", name: "WarwickCertificate", component: WarwickCertificate}
