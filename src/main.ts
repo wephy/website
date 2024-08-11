@@ -3,13 +3,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
 import Home from './components/Home.vue'
-import WarwickCertificate from './components/WarwickCertificate.vue'
+import Test from './components/Test.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {path: "/", name: "Home", component: Home},
-        {path: "/warwick-certificate.pdf", name: "WarwickCertificate", component: WarwickCertificate}
+        {path: "/test", name: "Test", component: Test}
     ]
 })
 
