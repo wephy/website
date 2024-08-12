@@ -14,7 +14,7 @@
 }
 
 [id] {
-  scroll-margin-top: 140px; /* Adjust based on the height of your fixed header or desired offset */
+  scroll-margin-top: 100px; /* Adjust based on the height of your fixed header or desired offset */
 }
 
 a {

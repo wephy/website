@@ -3,41 +3,76 @@
 
 <template>
   <div id="education" class="education">
-    <div class="work-item" v-for="education in educations" :key="education.id">
-      <div class="column work-left">
-        <p>{{ education.dateRange }}</p>
+    <div class="column work-left">
+      <p>Sep 2024 – Present</p>
+    </div>
+    <div class="column work-right">
+      <div class="company">
+        <p>University of Oxford</p>
       </div>
-      <div class="column work-right">
-        <div class="role">
-          <p>{{ education.role }}</p>
-        </div>
-        <div class="company">
-          <p>{{ education.company }}</p>
-        </div>
-        <div class="job">
+      <div class="role">
+        <p>Master of Science in Mathematical Modelling and Scientific Computing</p>
+      </div>
+      <!-- <div class="job">
           <p>{{ education.grade }}</p>
-        </div>
-        <div class="job">
-          <p>{{ education.job }}</p>
-        </div>
+        </div> -->
+      <div class="job">
+        <p>The Masters in Mathematical Sciences Scholar (fully funded) and MMSC Bursary Recipient for Academic
+          Excellence.</p>
+      </div>
+    </div>
+    <div class="column work-left">
+      <p>Sep 2021 – Jun 2024</p>
+    </div>
+    <div class="column work-right">
+      <div class="company">
+        <p>University of Warwick</p>
+      </div>
+      <div class="role">
+        <p>Bachelor of Science in Mathematics and Physics</p>
+      </div>
+      <div class="job">
+        <p>Grade: <b>First Class Honours</b></p>
+      </div>
+      <div class="job">
+        <p>Founder and president of The Poincaré Project which produced a yearly magazine focussed on the intersection
+          of mathematics, physics, and computer science.</p>
       </div>
     </div>
   </div>
-  <div id="experience" class="experience">
-    <div class="work-item" v-for="experience in experiences" :key="experience.id">
-      <div class="column work-left">
-        <p>{{ experience.dateRange }}</p>
+
+  <!-- EXPERIENCE -->
+
+  <div id="education" class="education">
+    <div class="column work-left">
+      <p>May 2023 – Present</p>
+    </div>
+    <div class="column work-right">
+      <div class="company">
+        <p>University of Warwick, Department of Physics</p>
       </div>
-      <div class="column work-right">
-        <div class="role">
-          <p>{{ experience.role }}</p>
-        </div>
-        <div class="company">
-          <p>{{ experience.company }}</p>
-        </div>
-        <div class="job">
-          <p>{{ experience.job }}</p>
-        </div>
+      <div class="role">
+        <p>URSS Researcher</p>
+      </div>
+      <!-- <div class="job">
+          <p>{{ education.grade }}</p>
+        </div> -->
+      <div class="job">
+        <p>Received funding to carry out a self-directed machine learning research project.</p>
+      </div>
+    </div>
+    <div class="column work-left">
+      <p>Jan 2017 – Aug 2021</p>
+    </div>
+    <div class="column work-right">
+      <div class="company">
+        <p>Self-employed</p>
+      </div>
+      <div class="role">
+        <p>Electrical Tester</p>
+      </div>
+      <div class="job">
+        <p>Contracted electrical testing of banks and data centres in Central London.</p>
       </div>
     </div>
   </div>
@@ -48,58 +83,38 @@ export default {
   name: 'WorkExperienceBlock',
   data() {
     return {
-      educations: [
-        {
-          id: 1,
-          dateRange: 'SEP 2024 – PRESENT',
-          company: '@ University of Oxford',
-          role: 'MSc Mathematical Modelling and Scientific Computing',
-          job: 'The Masters in Mathematical Sciences Scholar (fully funded) and MMSC Bursary Recipient for Academic Excellence.'
-        },
-        {
-          id: 2,
-          dateRange: 'SEP 2021 – JUN 2024',
-          company: '@ University of Warwick',
-          role: 'BSc Mathematics and Physics',
-          grade: "Grade: First Class",
-          job: 'Founder and president of the Poincaré Project which celebrates the interconnectedness of mathematics, physics and computer science and has produced two issues of the Poincaré Magazine.'
-        },
-      ],
       experiences: [
         {
           id: 1,
-          dateRange: 'MAY 2023 – PRESENT',
-          company: '@ University of Warwick, Department of Physics',
-          role: 'URSS Researcher',
-          job: 'Received funding under the Undergraduate Research Support Scheme to carry out a self-directed research project. This largly focused on "Large-Angle Convergent-Beam Electron Diffraction Patterns via Conditional Generative Adversarial Networks", supervised by Prof. Rudolf Roemer.'
+
         },
         {
           id: 2,
-          dateRange: 'JUN 2021 – JUN 2021',
-          company: '@ UK Government, Department of Digital, Culture, Media & Sport',
+          dateRange: '',
+          company: '',
+          role: '',
+          job: ''
+        },
+        {
+          id: 3,
+          dateRange: 'Jun 2021 – Jun 2021',
+          company: 'UK Government, Department of Digital, Culture, Media & Sport',
           role: 'Information, Technology Support Technician',
           job: 'Provided 1st- and 2nd-line support for DCMS from within the lovely building of 100 Parliament St.'
         },
         {
-          id: 3,
-          dateRange: 'FEB 2020 – SEP 2020',
-          company: '@ The Economist',
+          id: 4,
+          dateRange: 'Feb 2020 – Sep 2020',
+          company: 'The Economist',
           role: 'Information Technology Operations Analyst',
           job: 'Developed PowerShell scripts and an application to automate administrative tasks. Created/maintained documentation'
         },
         {
-          id: 4,
-          dateRange: 'FEB 2019 – OCT 2019',
-          company: '@ Selfridges & Co.',
+          id: 5,
+          dateRange: 'Feb 2019 – Oct 2019',
+          company: 'Selfridges & Co.',
           role: 'Computer Services Analyst',
           job: 'Extracted and performed data analysis from Active Directory. Created a PowerShell GUI program for the team to perform device management'
-        },
-        {
-          id: 5,
-          dateRange: 'JAN 2017 – AUG 2021',
-          company: 'Self-employed',
-          role: ' Electrical Tester',
-          job: 'Tested the electrics within a multitude of banks and data centers'
         },
       ],
     };
@@ -119,19 +134,25 @@ export default {
 .column {
   display: inline-block;
   padding: 0px;
-  margin: 0px;
+  margin-top: 0px;
 }
 
 .column:nth-child(n + 2) {
   display: inline-table;
+  /* padding: 0; */
+  /* margin-top: 0; */
 }
 
 .work-left {
+  position: flex;
   font-size: 12px;
-  width: 30%;
-  min-width: 150px;
-  max-width: 150px;
-  margin-bottom: -20px;
+  width: 20%;
+  min-width: 120px;
+  max-width: 120px;
+  font-family: 'Alegreya Sans';
+  font-style: italic;
+  /* margin-bottom: -24px; */
+  line-height: 1;
 }
 
 .work-right {
@@ -139,36 +160,48 @@ export default {
   min-width: 200px;
 }
 
-.role {
-  margin-top: -20px;
-  font-size: 20px;
-  color: #33AD63;
-  line-height: 1.3;
-  font-family: ZT Chintzy Bold;
+.company {
+  font-size: 18px;
+  font-family: 'Alegreya Sans ExtraBold';
+  /* margin-bottom: -16px; */
+  line-height: 1;
 }
 
-.company {
-  margin-top: -15px;
-  font-size: 20px;
-  line-height: 1.2;
-  font-family: ZT Chintzy Reg;
+.role {
+  font-size: 16px;
+  /* color: #33AD63; */
+  line-height: 1.3;
+  font-family: 'Alegreya Sans';
+  /* margin-bottom: -12px; */
 }
 
 .job {
   font-size: 16px;
-  margin-top: -10px;
-  margin-bottom: 30px;
+  /* margin-top: 0px; */
+  /* margin-bottom: -8px; */
+  line-height: 1.1;
 }
-
 
 /* Responsive Styles */
 @media (max-width: 1000px) {
   .work-left {
     width: 90%;
+    display: flex;
   }
 
   .work-right {
     width: 90%;
+    display: flex;
   }
+
+  .company {
+    /* margin-top: 0px; */
+    /* display: flex; */
+  }
+
+  .role {
+    /* display: flex; */
+  }
+
 }
 </style>

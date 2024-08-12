@@ -99,33 +99,35 @@ export default {
 }
 
 .left-column {
-    margin-right: calc(max(min(800px, (100vw / 2)), 600px));
+    /* margin-right: calc(max(min(800px, (100vw / 2)), 100px)); */
     text-align: left;
-    position: fixed;
-    top: 0;
-    width: 350px;
+    /* position: fixed; */
+    left: 100px;
+    width: 400px;
+    margin-top: 80px;
     /* Adjust width as needed */
-    height: 100%;
+    /* height: 100%; */
     /* Full viewport height */
     background: transparent;
-    padding: 20px;
-    overflow: hidden;
+    /* padding: 20px; */
+    /* overflow: hidden; */
     /* Handle overflow if needed */
-    margin-left: 40px;
-    z-index: 1;
+    /* margin-left: 200px; */
+    /* z-index: 1; */
 }
 
 .right-column {
     text-align: left;
+    /* position: fixed; */
+    /* right: 100px; */
     flex: 2;
-    /* Takes up more space than left column */
+    width: 450px;
     background: transparent;
     /* Transparent background */
-    margin-top: 110px;
-    margin-left: 400px;
-    text-align: left;
-    width: 450px;
-    z-index: 1;
+    /* margin-top: 110px; */
+    margin-left: 0px;
+    margin-top: 117px;
+    /* z-index: 1; */
 }
 
 /* Responsive Styles */
@@ -137,14 +139,15 @@ export default {
     }
 
     .left-column {
-        margin-top: 50px;
+        /* margin-top: 50px; */
         position: relative;
         /* Reset positioning for narrow screens */
         width: 100%;
         height: auto;
         /* Allow height to be auto-adjusted */
-        margin-right: 0px;
-        margin-left: -30px;
+        /* margin-right: 0px; */
+        /* margin-left: -30px; */
+        left: 0;
         max-width: 500px;
     }
 
@@ -193,7 +196,7 @@ export default {
     height: 300%;
     z-index: -2;
     /* Make sure it's below the radial circle */
-    background: #e5f6ff;
+    background: #FFFFFF;
 }
 
 @keyframes gradient {

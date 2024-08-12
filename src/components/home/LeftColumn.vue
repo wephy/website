@@ -9,27 +9,27 @@
       </a>
     </div>
     <div class="brief">
-      <p>MSc Student at the University of Oxford in Mathematical Modelling and Scientific Computing</p>
+      <p>I like pushing the boundaries on what can be simulated, and then making it run fast.</p>
     </div>
     <div class=overview>
       <a class="overview-link" href="#about">
         <div class="stretch-dash"></div>
-        <span> ABOUT</span>
+        <span> About</span>
       </a><br>
 
       <a class="overview-link" href="#education">
         <div class="stretch-dash"></div>
-        <span> EDUCATION</span>
+        <span> Education</span>
       </a><br>
 
       <a class="overview-link" href="#experience">
         <div class="stretch-dash"></div>
-        <span> EXPERIENCE</span>
+        <span> Experience</span>
       </a><br>
 
       <a class="overview-link" href="#projects">
         <div class="stretch-dash"></div>
-        <span> PROJECTS</span>
+        <span> Projects</span>
       </a>
 
     </div>
@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style>
+.name {
+  margin-top: 0px;
+}
+
 .portrait {
   width: 200px;
   display: block;
@@ -59,13 +63,13 @@ export default {
 
 .main-link {
   color: #2150CE;
-  font-family: ZT Chintzy Bold;
+  font-family: 'Alegreya Sans ExtraBold';
   font-size: 48px;
 }
 
 .main-link:hover {
   color: #33AD63;
-  font-family: ZT Chintzy Bold;
+  /* font-family: 'Alegreya Sans'; */
   font-size: 48px;
 }
 
@@ -73,20 +77,20 @@ export default {
   margin-top: -40px;
   font-size: 20px;
   line-height: 1.1;
-  font-family: ZT Chintzy Reg;
+  font-family: 'Alegreya Sans';
   max-width: 400px;
 }
 
 .overview {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .overview-link {
-  margin-top: 30px;
+  margin-top: 0px;
   color: #2150CE;
   text-decoration: none;
-  font-family: ZT Chintzy Reg;
-  font-size: 18px;
+  font-family: 'Alegreya Sans SC';
+  font-size: 24px;
   position: relative;
   display: inline-block;
   padding-left: 0px;
