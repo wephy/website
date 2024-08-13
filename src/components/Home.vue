@@ -131,19 +131,20 @@ html {
     color: #191919;
     text-transform: uppercase;
     border: 0 solid #000;
-    font-size: 5vw;
+    font-size: calc(max(7vw, 10vh));
     /* font-weight: 300; */
     line-height: .95em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
+    transition: transform .3s ease-in-out, color .5s ease-in-out, font-size .5s ease-in-out;
     display: block;
     position: relative;
 }
 
 .nav-link:hover {
+    /* font-family: 'Alegreya Sans ExtraBold'; */
     font-style: italic;
     letter-spacing: 1px;
-    transform: translate(10px);
+    transform: translate(20px);
     color: #191919;
 }
 
