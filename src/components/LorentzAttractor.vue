@@ -164,10 +164,10 @@ onMounted(initThree);
 
 <style scoped>
 .lorentz-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 120%;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     margin: 0;
