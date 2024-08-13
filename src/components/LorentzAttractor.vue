@@ -19,7 +19,7 @@
 import { ref, onMounted, onUnmounted, computed, nextTick } from 'vue';
 import * as THREE from 'three';
 
-const n = ref(15); // Number of points, initial value
+const n = 15; // Number of points, initial value
 
 // Define types for the arrays
 const geometries: THREE.BufferGeometry[] = [];
@@ -39,6 +39,15 @@ const dt = ref(0.002);
 
 // Computed property to check if dt is greater than 0.5
 const isDtHigh = computed(() => dt.value * 500 > 10);
+
+const sigma = 10;
+    const rho = 28;
+    const beta = 8 / 3;
+    const startPoints = Array.from({ length: n }, (_, i) => ({
+        x: Math.random() * 10 - 10,
+        y: Math.random() * 15,
+        z: (Math.random() + i) * 5
+    }));
 
 const initThree = () => {
     if (!background.value) return;
@@ -78,7 +87,7 @@ const initThree = () => {
     vertices.length = 0;
     materials.length = 0;
 
-    for (let i = 0; i < n.value; i++) {
+    for (let i = 0; i < n; i++) {
         geometries[i] = new THREE.BufferGeometry();
         vertices[i] = [];
         materials[i] = new THREE.PointsMaterial({
@@ -93,17 +102,8 @@ const initThree = () => {
         scene.add(points);
     }
 
-    const sigma = 10;
-    const rho = 28;
-    const beta = 8 / 3;
-    const startPoints = Array.from({ length: n.value }, (_, i) => ({
-        x: Math.random() * 10 - 10,
-        y: Math.random() * 15,
-        z: (Math.random() + i) * 5
-    }));
-
     const updateAttractors = () => {
-        for (let i = 0; i < n.value; i++) {
+        for (let i = 0; i < n; i++) {
             const { x, y, z } = startPoints[i];
             const dx = sigma * (y - x) * dt.value;
             const dy = (x * (rho - z) - y) * dt.value;
