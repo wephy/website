@@ -14,7 +14,7 @@ const materials: THREE.PointsMaterial[] = [];
 const n = 15; // Number of paths
 const pointSize = 2; // Adjust this value for point thickness
 const fadeDuration = 100; // Number of frames over which points fade
-const fadeStep = 1 / fadeDuration; // Fade step per frame
+// const fadeStep = 1 / fadeDuration; // Fade step per frame
 
 // Refs for the DOM elements
 const background = ref<HTMLDivElement | null>(null);
