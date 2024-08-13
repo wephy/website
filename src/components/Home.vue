@@ -45,7 +45,7 @@ html {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    color: #191919;
+    color: #010203;
     font-family: "Alegreya Sans";
 }
 
@@ -73,7 +73,7 @@ html {
 .headerName {
     z-index: 100;
     text-align: left;
-    color: #191919;
+    color: #010203;
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: 4.7vw;
@@ -88,7 +88,7 @@ html {
 .headerTitle {
     z-index: 100;
     text-align: left;
-    color: #191919;
+    color: #010203;
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: 4.7vw;
@@ -111,7 +111,7 @@ html {
 .nav-link {
     z-index: 100;
     text-align: left;
-    color: #191919;
+    color: #010203;
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: calc(max(7vw, 7vh));
@@ -127,7 +127,7 @@ html {
     font-style: italic;
     letter-spacing: 1px;
     transform: translate(20px);
-    color: #191919;
+    color: #010203;
 }
 
 </style>
