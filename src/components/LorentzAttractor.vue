@@ -5,7 +5,7 @@
     <div ref="background" class="lorentz-background"></div>
 </template>
 
-<script>
+<script lang="ts">
 import * as THREE from 'three';
 
 export default {
