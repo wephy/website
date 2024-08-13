@@ -80,9 +80,9 @@ const initThree = () => {
     const rho = 28;
     const beta = 8 / 3;
     const startPoints = Array.from({ length: n.value }, (_, i) => ({
-        x: Math.random() * 3 * n.value - 10,
-        y: Math.random() * 3 * i,
-        z: i * 2
+        x: Math.random() * 5 - 10,
+        y: Math.random() * 5,
+        z: Math.random() * 100
     }));
 
     const updateAttractors = () => {
