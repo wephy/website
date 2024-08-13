@@ -52,7 +52,7 @@ html {
 .background {
     position: fixed;
     /* background: #ffffff; */
-    background: #f5f3ef;
+    background: #fefdfc;
     top: 0;
     left: 0;
     width: 100%;
@@ -79,7 +79,7 @@ html {
     font-weight: 400;
     line-height: 0.9em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, color .5s ease-in-out, font-size .5s ease-in-out;
+    transition: transform .3s ease-in-out, font-size .5s ease-in-out;
     display: block;
     position: relative;
 }
@@ -93,7 +93,7 @@ html {
     font-weight: 400;
     line-height: 0.9em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, color .5s ease-in-out, font-size .5s ease-in-out;
+    transition: transform .3s ease-in-out, font-size .5s ease-in-out;
     display: block;
     position: relative;
 }
@@ -116,14 +116,14 @@ html {
     font-weight: 800;
     line-height: 1em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, color .5s ease-in-out, font-size .5s ease-in-out;
+    transition: transform .5s ease-in-out, font-size .5s ease-in-out;
     display: block;
 }
 
 .nav-link:hover {
     font-style: italic;
     letter-spacing: 1px;
-    transform: translate(20px);
+    transform: translate(40px);
     color: #010203;
 }
 
