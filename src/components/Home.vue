@@ -91,7 +91,7 @@ html {
     color: #191919;
     text-transform: uppercase;
     border: 0 solid #000;
-    font-size: 5vw;
+    font-size: 4.7vw;
     /* font-weight: 300; */
     line-height: .95em;
     text-decoration: none;
@@ -107,7 +107,7 @@ html {
     color: #191919;
     text-transform: uppercase;
     border: 0 solid #000;
-    font-size: 5vw;
+    font-size: 4.7vw;
     /* font-weight: 300; */
     line-height: .95em;
     text-decoration: none;
