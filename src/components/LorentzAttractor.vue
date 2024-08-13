@@ -10,7 +10,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import * as THREE from 'three';
 
-const n = ref(7); // Number of points, initial value
+const n = ref(10); // Number of points, initial value
 
 // Define types for the arrays
 const geometries: THREE.BufferGeometry[] = [];
@@ -43,8 +43,15 @@ const initThree = () => {
 
     function getRandomPastelColor() {
         const x = Math.random();
-        const y = -(Math.cos(Math.PI * x) - 1) / 2;
-        const hue = Math.floor(y * 360);
+        let y = 0;
+        let hue = 0;
+        if (x < 0.5) {
+            hue = Math.floor(x * 60);
+        }
+        else {
+            hue = Math.floor((x < 0.5 ? Math.pow(x / 8, 1 / 4) : 1 - 0.5 * Math.pow(2 * (1 - x), 1 / 4)) * 360);
+        }
+        // const hue = Math.floor(y * 360);
         const saturation = 90;
         const lightness = Math.floor(Math.random() * 20) + 65;
         return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
