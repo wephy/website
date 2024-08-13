@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
     <div ref="background" class="lorentz-background"></div>
 </template>
