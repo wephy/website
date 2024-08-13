@@ -200,7 +200,7 @@ onMounted(initThree);
 .control-panel {
     font-family: "JuliaMono-Regular";
     position: absolute;
-    width: min(300px, 50vw);
+    width: min(300px, 100vw);
     bottom: 35px;
     right: 0px;
     text-align: left;
