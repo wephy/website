@@ -10,7 +10,7 @@
 import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 import * as THREE from 'three';
 
-const n = ref(2); // Number of points, initial value
+const n = ref(4); // Number of points, initial value
 
 // Define types for the arrays
 const geometries: THREE.BufferGeometry[] = [];
@@ -74,7 +74,7 @@ const initThree = () => {
     const rho = 28;
     const beta = 8 / 3;
     const startPoints = Array.from({ length: n.value }, (_, i) => ({
-        x: i * 2 - 5,
+        x: Math.random() * 3 * n.value - 3,
         y: i,
         z: i * 2
     }));
@@ -105,7 +105,7 @@ const initThree = () => {
             requestAnimationFrame(animate);
             updateAttractors();
             camera.position.set(20, 90, 60);
-            camera.lookAt(- window.innerWidth / 50 - 10, -80, window.innerWidth / 50 - 20);
+            camera.lookAt(- window.innerWidth / 50 - 10, -100, window.innerWidth / 50 - 20);
             renderer.render(scene, camera);
         }
     };
@@ -163,7 +163,9 @@ onMounted(initThree);
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
+    margin: 0;
+    padding: 0;
 }
 
 .decrease-points-button {
