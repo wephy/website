@@ -46,7 +46,7 @@ const initThree = () => {
         let y = 0;
         let hue = 0;
         if (x < 0.5) {
-            hue = Math.floor(x * 60);
+            hue = Math.floor(x * 360);
         }
         else {
             hue = Math.floor((x < 0.5 ? Math.pow(x / 8, 1 / 4) : 1 - 0.5 * Math.pow(2 * (1 - x), 1 / 4)) * 360);
