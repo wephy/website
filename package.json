@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "three": "^0.167.1",
     "vue": "^3.4.31",
     "vue-pdf-embed": "^2.1.0",
     "vue-router": "^4.4.3"

@@ -2,214 +2,133 @@
 </script>
 
 <template>
-    <div id="home" @mousemove="handleMouseMove">
-        <div class="mouse-overlay2" :style="overlayStyle"></div>
-        <div class="mouse-overlay1" :style="overlayStyle"></div>
-
+    <div id="home">
         <div class="background"></div>
-        <div class="container">
-            <LeftColumn />
-            <RightColumn />
-        </div>
+        <!-- <div class="svgs">
+            <svg class="svg cls-1 svg1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 2029.24">
+                <path
+                    d="M4000,200c-250.01,0-375.01,407.31-500.02,814.62-125,407.31-250.01,814.62-500.02,814.62-250,0-375-287.39-499.99-574.79-125-287.39-250-574.79-499.99-574.79-250,0-375,287.39-500,574.79s-250,574.79-500,574.79c-250,0-374.99-407.31-499.99-814.62C374.99,607.31,250,200,0,200" />
+            </svg> -->
+        <!-- <svg class="svg cls-1 svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 2029.24">
+                <path
+                    d="M4000,200c-250.01,0-375.01,407.31-500.02,814.62-125,407.31-250.01,814.62-500.02,814.62-250,0-375-287.39-499.99-574.79-125-287.39-250-574.79-499.99-574.79-250,0-375,287.39-500,574.79s-250,574.79-500,574.79c-250,0-374.99-407.31-499.99-814.62C374.99,607.31,250,200,0,200" />
+            </svg> -->
+        <!-- <svg class="svg cls-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 1829.24">>
+                <path
+                    d="M4000,100c-250.01,0-375.01,407.31-500.02,814.62-125,407.31-250.01,814.62-500.02,814.62-250,0-375-287.39-499.99-574.79-125-287.39-250-574.79-499.99-574.79-250,0-375,287.39-500,574.79s-250,574.79-500,574.79c-250,0-374.99-407.31-499.99-814.62C374.99,507.31,250,100,0,100" />
+            </svg> -->
+        <!-- </div> -->
+
+        <LorentzAttractor />
+
+        <section>
+            <div class="container">
+                <div class="headerName">
+                    Joseph Webb
+                </div>
+                <div class="headerTitle">
+                    Mathematician, Physicist, Programmer
+                </div>
+                <div class="headerLinks">
+                    Joseph Webb
+                </div>
+            </div>
+        </section>
     </div>
 </template>
 
 <script lang="ts">
-import LeftColumn from './home/LeftColumn.vue';
-import RightColumn from './home/RightColumn.vue';
-
+import LorentzAttractor from './LorentzAttractor.vue';
 
 export default {
     components: {
-        LeftColumn,
-        RightColumn,
-    },
-    data() {
-        return {
-            mouseX: 0,
-            mouseY: 0,
-            currentX: 0, // Current X position for smoothing
-            currentY: 0, // Current Y position for smoothing
-            animationFrame: 0 // Store animation frame for cleanup
-        };
-    },
-    computed: {
-        overlayStyle() {
-            return {
-                // Set left and top based on the smoothed positions
-                left: `${this.currentX}px`,
-                top: `${this.currentY}px`,
-                transform: 'translate(-50%, -50%)' // Center the overlay
-            };
-        }
-    },
-    methods: {
-        handleMouseMove(event: MouseEvent) {
-            // Update target mouse coordinates
-            this.mouseX = event.clientX;
-            this.mouseY = event.clientY;
-        },
-        animateOverlay() {
-            // Linear interpolation factor for smoothing
-            const lerpFactor = 0.05;
-
-            // Smoothly interpolate the current position
-            this.currentX += (this.mouseX - this.currentX) * lerpFactor;
-            this.currentY += (this.mouseY - this.currentY) * lerpFactor;
-
-            // Request the next animation frame
-            this.animationFrame = requestAnimationFrame(this.animateOverlay);
-        }
-    },
-    mounted() {
-        // Attach mousemove event listener
-        window.addEventListener('mousemove', this.handleMouseMove);
-
-        // Start the animation loop
-        this.animateOverlay();
-    },
-    beforeUnmount() {
-        // Remove mousemove event listener
-        window.removeEventListener('mousemove', this.handleMouseMove);
-
-        // Cancel the animation frame to prevent memory leaks
-        cancelAnimationFrame(this.animationFrame);
+        LorentzAttractor
     }
-};
+}
 
 </script>
 
+
 <style>
-#home {
-    /* Center horizontally */
-    align-items: flex-start;
-    /* Align items at the top */
-    min-height: 100vh;
-    /* Full viewport height */
-    overflow: visible;
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    /* Center columns horizontally */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     width: 100%;
-    box-sizing: border-box;
+    overflow: hidden;
 }
-
-.left-column {
-    /* margin-right: calc(max(min(800px, (100vw / 2)), 100px)); */
-    text-align: left;
-    /* position: fixed; */
-    left: 100px;
-    width: 400px;
-    margin-top: 80px;
-    /* Adjust width as needed */
-    /* height: 100%; */
-    /* Full viewport height */
-    background: transparent;
-    /* padding: 20px; */
-    /* overflow: hidden; */
-    /* Handle overflow if needed */
-    /* margin-left: 200px; */
-    /* z-index: 1; */
-}
-
-.right-column {
-    text-align: left;
-    /* position: fixed; */
-    /* right: 100px; */
-    flex: 2;
-    width: 450px;
-    background: transparent;
-    /* Transparent background */
-    /* margin-top: 110px; */
-    margin-left: 0px;
-    margin-top: 117px;
-    /* z-index: 1; */
-}
-
-/* Responsive Styles */
-@media (max-width: 1000px),
-(max-height: 600px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .left-column {
-        /* margin-top: 50px; */
-        position: relative;
-        /* Reset positioning for narrow screens */
-        width: 100%;
-        height: auto;
-        /* Allow height to be auto-adjusted */
-        /* margin-right: 0px; */
-        /* margin-left: -30px; */
-        left: 0;
-        max-width: 500px;
-    }
-
-    .right-column {
-        margin-left: 0px;
-        margin-right: 0px;
-        width: 100%;
-        max-width: 500px;
-        margin-top: 50px;
-        /* Space between stacked columns */
-    }
-}
-
-
-/* .mouse-overlay1 {
-  position: fixed;
-  pointer-events: none;
-  width: 1200px;
-  height: 1200px;
-  background: radial-gradient(circle, rgba(255, 176, 4, 0.1), transparent);
-  mask-image: radial-gradient(circle, black, transparent 50%);
-  mix-blend-mode: darken;
-  will-change: transform;
-  z-index: 2;
-}
-
-
-.mouse-overlay2 {
-  position: fixed;
-  pointer-events: none;
-  width: 1200px;
-  height: 1200px;
-  background: radial-gradient(circle, rgb(255, 243, 197), transparent);
-  mask-image: radial-gradient(circle, black, transparent 50%);
-  mix-blend-mode: multiply;
-  will-change: transform;
-  z-index: 0;
-} */
 
 .background {
     position: fixed;
-    /* Ensure it covers the entire viewport */
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    z-index: -2;
-    /* Make sure it's below the radial circle */
-    background: #FFFFFF;
+    background: #E6E6E6;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 70%;
-    }
-
-    100% {
-        background-position: 0% 20%;
-    }
+.container {
+    position: fixed;
+    text-align: left;
+    top: 0;
+    left: 0;
+    margin-top: 48px;
+    margin-left: 64px;
+    padding: 0;
 }
+
+.headerName {
+    font-size: 64px;
+    font-family: 'Alegreya Sans';
+    /* margin-top: 24px;
+    margin-left: 24px; */
+    /* padding: 64px; */
+    color: #000000;
+}
+
+.headerTitle {
+    font-size: 18px;
+    font-family: 'Alegreya Sans';
+    margin-top: -12px;
+    /* padding: 64px; */
+    color: #000000;
+}
+
+/*
+*.svgs {
+*    display: grid; 
+*    grid-template-columns: repeat(12, 1fr);
+*    position: absolute;
+*    top: 0px;
+*    left: 0px;
+*}
+*
+*.svg {
+*    height: 50vh;
+*    width: 10vw;
+*}
+*
+*.cls-1 {
+*    position: absolute;
+*    top: 0px;
+*
+*    fill: none;
+*
+*    stroke-width: 350px;
+*
+*    mix-blend-mode: multiply;
+*}
+*
+*.svg1 {
+*    left: 0px;
+*    stroke: #FFFFA0;
+*}
+*
+*.svg2 {
+*    left: 10vw;
+*    stroke: #32CACE;
+*}
+*/
 </style>
