@@ -44,8 +44,8 @@ const sigma = 10;
     const rho = 28;
     const beta = 8 / 3;
     const startPoints = Array.from({ length: n }, (_, i) => ({
-        x: Math.random() * 10 - 10,
-        y: Math.random() * 15 + i,
+        x: Math.random() * 10 - i,
+        y: Math.random() * 10 + i - 10,
         z: (Math.random() + i) * 5
     }));
 
