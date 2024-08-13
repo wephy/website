@@ -5,7 +5,7 @@
         <div>
             Change the parameters of the simulation:
         </div>
-        <div v-if="isDtHigh" class="warning-message">Warning: UNSTABLE - simulation speed is too high!</div>
+        <div v-if="isDtHigh" class="warning-message">WARNING: UNSTABLE. Simulation speed is too high!</div>
         <div class="speed">
             Speed: {{ (dt * 500).toFixed(3) }}
             <button class="decrease-dt-button" @click="decreaseDt">-</button>
@@ -45,7 +45,7 @@ const sigma = 10;
     const beta = 8 / 3;
     const startPoints = Array.from({ length: n }, (_, i) => ({
         x: Math.random() * 10 - 10,
-        y: Math.random() * 15,
+        y: Math.random() * 15 + i,
         z: (Math.random() + i) * 5
     }));
 
@@ -233,7 +233,7 @@ onMounted(initThree);
     left: 6vw;
     top: 15vh;
     color: #ff2400;
-    font-size: 5vw;
+    font-size: max(5vw, 10vh);
     font-weight: 800;
     font-family: "JuliaMono-Black";
     /* z-index: 1000; */
