@@ -44,9 +44,9 @@ const sigma = 10;
     const rho = 28;
     const beta = 8 / 3;
     const startPoints = Array.from({ length: n }, (_, i) => ({
-        x: Math.random() * 10 - i,
-        y: Math.random() * 10 + i - 10,
-        z: (Math.random() + i) * 5
+        x: Math.random() * 3 - i,
+        y: Math.random() * 3 + i - 10,
+        z: (Math.random() + i) * 4
     }));
 
 const initThree = () => {
@@ -67,11 +67,11 @@ const initThree = () => {
     function getRandomPastelColor() {
         const x = Math.random();
         let hue = 0;
-        if (x < 0.2) {
-            hue = Math.floor(x * 200);
+        if (x < 0.3) {
+            hue = Math.floor(x * 360);
         }
-        else if (x < 0.5) {
-            hue = Math.floor(x * 400);
+        else if (x < 0.6) {
+            hue = Math.floor(x * 200);
         }
         else {
             hue = Math.floor((x < 0.5 ? Math.pow(x / 8, 1 / 4) : 1 - 0.5 * Math.pow(2 * (1 - x), 1 / 4)) * 360);
