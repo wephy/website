@@ -52,7 +52,7 @@ html {
 .background {
     position: fixed;
     /* background: #ffffff; */
-    background: #f0ede7;
+    background: #f5f3ef;
     top: 0;
     left: 0;
     width: 100%;
