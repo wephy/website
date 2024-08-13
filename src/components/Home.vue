@@ -61,6 +61,7 @@ html {
     width: 100%;
     overflow: hidden;
     color: #191919;
+    font-family: "Alegreya Sans";
 }
 
 .background {
@@ -85,14 +86,13 @@ html {
 }
 
 .headerName {
-    font-family: 'Alegreya Sans';
     z-index: 100;
     text-align: left;
     color: #191919;
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: 4.7vw;
-    /* font-weight: 300; */
+    font-weight: 500;
     line-height: .95em;
     text-decoration: none;
     transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
@@ -101,14 +101,13 @@ html {
 }
 
 .headerTitle {
-    font-family: 'Alegreya Sans';
     z-index: 100;
     text-align: left;
     color: #191919;
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: 4.7vw;
-    /* font-weight: 300; */
+    font-weight: 500;
     line-height: .95em;
     text-decoration: none;
     transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
@@ -125,7 +124,6 @@ html {
 }
 
 .nav-link {
-    font-family: 'Alegreya Sans';
     z-index: 100;
     text-align: left;
     color: #191919;
@@ -141,7 +139,6 @@ html {
 }
 
 .nav-link:hover {
-    /* font-family: 'Alegreya Sans ExtraBold'; */
     font-style: italic;
     letter-spacing: 1px;
     transform: translate(20px);
