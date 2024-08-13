@@ -209,11 +209,6 @@ onMounted(initThree);
     padding: 0;
 }
 
-.speed {
-    /* position: fixed; */
-    bottom: 20px;
-}
-
 .increase-dt-button, .decrease-dt-button {
     /* position: fixed; */
     padding: 2px 10px;
