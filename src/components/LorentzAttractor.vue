@@ -1,6 +1,7 @@
 <template>
     <div ref="background" class="lorentz-background"></div>
-    <div class="control-panel">
+    <div class="containerControlPanel">
+        <div class="control-panel">
         <div>
             Change the parameters of the simulation:
         </div>
@@ -10,7 +11,7 @@
             <button class="decrease-dt-button" @click="decreaseDt">-</button>
             <button class="increase-dt-button" @click="increaseDt">+</button>
         </div>
-
+    </div>
     </div>
 </template>
 
@@ -180,6 +181,7 @@ onMounted(initThree);
 <style scoped>
 .lorentz-background {
     position: fixed;
+    flex: 1;
     top: 0;
     left: 0;
     width: 100%;
@@ -189,37 +191,35 @@ onMounted(initThree);
     padding: 0;
 }
 
+.containerControlPanel {
+  width: 100vw;
+  height: 100vh; /* Full height of the viewport */
+}
+
+
 .control-panel {
     font-family: "JuliaMono-Regular";
-    position: flex;
-    bottom: 100px;
-    right: 50px;
-    width: min(300px, 30vw);
+    position: absolute;
+    width: min(300px, 50vw);
+    bottom: 35px;
+    right: 0px;
     text-align: left;
-    font-size: min(24px, 3vw);
+    font-size: min(24px, 5vw);
 }
 
 .speed {
-    position: fixed;
+    /* position: fixed; */
     bottom: 20px;
 }
 
 .increase-dt-button, .decrease-dt-button {
-    position: fixed;
+    /* position: fixed; */
     padding: 2px 10px;
     background-color: #010203;
     color: white;
     border: none;
     font-size: 24px;
     cursor: pointer;
-}
-
-.increase-dt-button {
-    right: 80px;
-}
-
-.decrease-dt-button {
-    right: 40px;
 }
 
 @keyframes flash {
