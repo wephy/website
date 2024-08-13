@@ -17,8 +17,8 @@
                 <div class="headerBreak"></div>
                 <div class="headerLinks">
                     <a class="nav-link" href="/cv.pdf">CV</a>
-                    <a class="nav-link" href="https://github.com/wephy">GitHub</a>
                     <a class="nav-link" href="https://linkedin.com/in/wephy">LinkedIn</a>
+                    <a class="nav-link" href="https://github.com/wephy">GitHub</a>
                 </div>
             </div>
         </section>
