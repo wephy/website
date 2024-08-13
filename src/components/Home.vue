@@ -75,12 +75,11 @@ html {
     text-align: left;
     color: #010203;
     text-transform: uppercase;
-    border: 0 solid #000;
-    font-size: 4.7vw;
-    font-weight: 500;
-    line-height: .95em;
+    font-size: max(7vh, 4.7vw);
+    font-weight: 400;
+    line-height: 0.9em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
+    transition: transform .3s ease-in-out, color .5s ease-in-out, font-size .5s ease-in-out;
     display: block;
     position: relative;
 }
@@ -90,12 +89,11 @@ html {
     text-align: left;
     color: #010203;
     text-transform: uppercase;
-    border: 0 solid #000;
-    font-size: 4.7vw;
-    font-weight: 500;
-    line-height: .95em;
+    font-size: max(2.2vh, 1.48vw);
+    font-weight: 400;
+    line-height: 0.9em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
+    transition: transform .3s ease-in-out, color .5s ease-in-out, font-size .5s ease-in-out;
     display: block;
     position: relative;
 }
@@ -105,7 +103,7 @@ html {
 }
 
 .headerLinks {
-    width: 40vw;
+    width: 50vw;
 }
 
 .nav-link {
@@ -116,11 +114,10 @@ html {
     border: 0 solid #000;
     font-size: calc(max(7vw, 7vh));
     font-weight: 800;
-    line-height: .95em;
+    line-height: 1em;
     text-decoration: none;
     transition: transform .3s ease-in-out, color .5s ease-in-out, font-size .5s ease-in-out;
     display: block;
-    position: relative;
 }
 
 .nav-link:hover {
