@@ -127,9 +127,7 @@ const initThree = () => {
         if (renderer) {
             renderer.dispose();
         }
-        if (scene) {
-            scene.dispose();
-        }
+        // No need to dispose of the scene explicitly
         window.removeEventListener('resize', onResize);
     });
 };

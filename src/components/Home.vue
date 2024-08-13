@@ -96,40 +96,4 @@ html {
     /* padding: 64px; */
     color: #000000;
 }
-
-/*
-*.svgs {
-*    display: grid; 
-*    grid-template-columns: repeat(12, 1fr);
-*    position: absolute;
-*    top: 0px;
-*    left: 0px;
-*}
-*
-*.svg {
-*    height: 50vh;
-*    width: 10vw;
-*}
-*
-*.cls-1 {
-*    position: absolute;
-*    top: 0px;
-*
-*    fill: none;
-*
-*    stroke-width: 350px;
-*
-*    mix-blend-mode: multiply;
-*}
-*
-*.svg1 {
-*    left: 0px;
-*    stroke: #FFFFA0;
-*}
-*
-*.svg2 {
-*    left: 10vw;
-*    stroke: #32CACE;
-*}
-*/
 </style>
