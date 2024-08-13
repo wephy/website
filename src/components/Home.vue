@@ -131,7 +131,7 @@ html {
     color: #191919;
     text-transform: uppercase;
     border: 0 solid #000;
-    font-size: calc(max(7vw, 10vh));
+    font-size: calc(max(7vw, 7vh));
     /* font-weight: 300; */
     line-height: .95em;
     text-decoration: none;
