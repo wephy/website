@@ -194,6 +194,7 @@ onMounted(initThree);
 .containerControlPanel {
   width: 100vw;
   height: 100vh; /* Full height of the viewport */
+  padding: 0;
 }
 
 
@@ -205,6 +206,7 @@ onMounted(initThree);
     right: 0px;
     text-align: left;
     font-size: min(24px, 5vw);
+    padding: 0;
 }
 
 .speed {
@@ -236,12 +238,6 @@ onMounted(initThree);
     font-size: max(5vw, 10vh);
     font-weight: 800;
     font-family: "JuliaMono-Black";
-    /* z-index: 1000; */
-    /* color: red; Change color as needed */
-    /* font-size: 24px; */
-    /* position: fixed;
-    top: 20px;
-    left: 20px; */
     animation: flash 0.8s infinite; /* Adjust duration and iteration as needed */
 }
 </style>
