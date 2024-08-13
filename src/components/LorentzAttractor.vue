@@ -225,6 +225,7 @@ onMounted(initThree);
 }
 
 .warning-message {
+    pointer-events: none;
     position: fixed;
     left: 6vw;
     top: 15vh;
