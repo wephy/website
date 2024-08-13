@@ -9,10 +9,10 @@
         <section>
             <div class="container">
                 <div class="headerName">
-                    Joseph Webb
+                    Joseph <span>We</span>bb
                 </div>
                 <div class="headerTitle">
-                    Mathematician, Physicist, Programmer
+                    Mathematician, <span>Phy</span>sicist, Programmer
                 </div>
                 <div class="headerBreak"></div>
                 <div class="headerLinks">
