@@ -70,6 +70,10 @@ html {
     padding: 0;
 }
 
+.control-panel {
+    z-index: 1000;
+}
+
 .headerName {
     z-index: 100;
     text-align: left;
@@ -79,7 +83,7 @@ html {
     font-weight: 400;
     line-height: 0.9em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, font-size .5s ease-in-out;
+    transition: transform .3s ease-in-out, font-size .2s ease-in-out;
     display: block;
     position: relative;
 }
@@ -93,7 +97,7 @@ html {
     font-weight: 400;
     line-height: 0.9em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, font-size .5s ease-in-out;
+    transition: transform .3s ease-in-out, font-size .2s ease-in-out;
     display: block;
     position: relative;
 }
@@ -116,7 +120,7 @@ html {
     font-weight: 800;
     line-height: 1em;
     text-decoration: none;
-    transition: transform .5s ease-in-out, font-size .5s ease-in-out;
+    transition: transform .5s ease-in-out, font-size .2s ease-in-out;
     display: block;
 }
 

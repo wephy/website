@@ -1,0 +1,12 @@
+@font-face {
+  font-family: JuliaMono-Light;
+  src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono-webfonts/JuliaMono-Light.woff2");
+}
+@font-face {
+  font-family: JuliaMono-Regular;
+  src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono-webfonts/JuliaMono-Regular.woff2");
+}
+@font-face {
+  font-family: JuliaMono-Black;
+  src: url("https://cdn.jsdelivr.net/gh/cormullion/juliamono-webfonts/JuliaMono-Black.woff2");
+}

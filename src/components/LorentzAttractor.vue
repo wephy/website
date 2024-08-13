@@ -1,16 +1,24 @@
 <template>
     <div ref="background" class="lorentz-background"></div>
     <div class="control-panel">
-        <!-- <button class="decrease-points-button" @click="decreaseNumberOfPoints">-</button>
-        <button class="increase-points-button" @click="increaseNumberOfPoints">+</button> -->
+        <div>
+            Change the parameters of the simulation:
+        </div>
+        <div v-if="isDtHigh" class="warning-message">Warning: UNSTABLE - simulation speed is too high!</div>
+        <div class="speed">
+            Speed: {{ (dt * 500).toFixed(3) }}
+            <button class="decrease-dt-button" @click="decreaseDt">-</button>
+            <button class="increase-dt-button" @click="increaseDt">+</button>
+        </div>
+
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import * as THREE from 'three';
 
-const n = ref(10); // Number of points, initial value
+const n = ref(15); // Number of points, initial value
 
 // Define types for the arrays
 const geometries: THREE.BufferGeometry[] = [];
@@ -25,6 +33,11 @@ const background = ref<HTMLDivElement | null>(null);
 let scene: THREE.Scene | null = null;
 let camera: THREE.PerspectiveCamera | null = null;
 let renderer: THREE.WebGLRenderer | null = null;
+
+const dt = ref(0.002);
+
+// Computed property to check if dt is greater than 0.5
+const isDtHigh = computed(() => dt.value * 500 > 10);
 
 const initThree = () => {
     if (!background.value) return;
@@ -44,8 +57,11 @@ const initThree = () => {
     function getRandomPastelColor() {
         const x = Math.random();
         let hue = 0;
-        if (x < 0.5) {
-            hue = Math.floor(x * 360);
+        if (x < 0.2) {
+            hue = Math.floor(x * 200);
+        }
+        else if (x < 0.5) {
+            hue = Math.floor(x * 400);
         }
         else {
             hue = Math.floor((x < 0.5 ? Math.pow(x / 8, 1 / 4) : 1 - 0.5 * Math.pow(2 * (1 - x), 1 / 4)) * 360);
@@ -86,12 +102,11 @@ const initThree = () => {
     }));
 
     const updateAttractors = () => {
-        const dt = 0.005;
         for (let i = 0; i < n.value; i++) {
             const { x, y, z } = startPoints[i];
-            const dx = sigma * (y - x) * dt;
-            const dy = (x * (rho - z) - y) * dt;
-            const dz = (x * y - beta * z) * dt;
+            const dx = sigma * (y - x) * dt.value;
+            const dy = (x * (rho - z) - y) * dt.value;
+            const dz = (x * y - beta * z) * dt.value;
             startPoints[i].x += dx;
             startPoints[i].y += dy;
             startPoints[i].z += dz;
@@ -138,25 +153,25 @@ const initThree = () => {
     });
 };
 
-// const increaseNumberOfPoints = () => {
-//     if (n.value == 15) {
-//         return
-//     }
-//     n.value += 1; // Increase the number of points by 1
-//     nextTick(() => {
-//         initThree(); // Reinitialize the Three.js scene with the new number of points
-//     });
-// };
+const increaseDt = () => {
+    // if (dt.value == 0.001) {
+    //     return
+    // }
+    dt.value *= 2;
+    nextTick(() => {
+        initThree();
+    });
+};
 
-// const decreaseNumberOfPoints = () => {
-//     if (n.value == 1) {
-//         return
-//     }
-//     n.value -= 1; // Decrease the number of points by 1
-//     nextTick(() => {
-//         initThree(); // Reinitialize the Three.js scene with the new number of points
-//     });
-// };
+const decreaseDt = () => {
+    if (dt.value * 500 / 1.25 < 0.1) {
+        return
+    }
+    dt.value /= 2; 
+    nextTick(() => {
+        initThree();
+    });
+};
 
 // Initialize Three.js on component mount
 onMounted(initThree);
@@ -174,29 +189,59 @@ onMounted(initThree);
     padding: 0;
 }
 
-.decrease-points-button {
+.control-panel {
+    font-family: "JuliaMono-Regular";
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    width: min(300px, 30vw);
+    text-align: left;
+    font-size: min(24px, 3vw);
+}
+
+.speed {
     position: fixed;
     bottom: 20px;
-    right: 100px;
-    /* padding: 10px 20px; */
-    background-color: #191919;
+}
+
+.increase-dt-button, .decrease-dt-button {
+    position: fixed;
+    padding: 2px 10px;
+    background-color: #010203;
     color: white;
     border: none;
     font-size: 24px;
-    /* border-radius: 5px; */
     cursor: pointer;
 }
 
-.increase-points-button {
+.increase-dt-button {
+    right: 80px;
+}
+
+.decrease-dt-button {
+    right: 40px;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.warning-message {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    /* padding: 10px 20px; */
-    background-color: #191919;
-    color: white;
-    border: none;
-    font-size: 24px;
-    /* border-radius: 5px; */
-    cursor: pointer;
+    left: 6vw;
+    top: 15vh;
+    color: #ff2400;
+    font-size: 5vw;
+    font-weight: 800;
+    font-family: "JuliaMono-Black";
+    /* z-index: 1000; */
+    /* color: red; Change color as needed */
+    /* font-size: 24px; */
+    /* position: fixed;
+    top: 20px;
+    left: 20px; */
+    animation: flash 0.8s infinite; /* Adjust duration and iteration as needed */
 }
 </style>
