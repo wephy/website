@@ -29,9 +29,12 @@
                 <div class="headerTitle">
                     Mathematician, Physicist, Programmer
                 </div>
-                <!-- <div class="headerLinks">
-                    Joseph Webb
-                </div> -->
+                <div class="headerBreak"></div>
+                <div class="headerLinks">
+                    <a class="nav-link" href="/cv.pdf">CV</a>
+                    <a class="nav-link" href="https://github.com/wephy">GitHub</a>
+                    <a class="nav-link" href="https://linkedin.com/in/wephy">LinkedIn</a>
+                </div>
             </div>
         </section>
     </div>
@@ -76,24 +79,72 @@ html {
     text-align: left;
     top: 0;
     left: 0;
-    margin-top: 48px;
-    margin-left: 64px;
+    margin-top: 24px;
+    margin-left: 24px;
     padding: 0;
 }
 
 .headerName {
-    font-size: 64px;
     font-family: 'Alegreya Sans';
-    /* margin-top: 24px;
-    margin-left: 24px; */
-    /* padding: 64px; */
+    z-index: 100;
+    text-align: left;
+    color: #191919;
+    text-transform: uppercase;
+    border: 0 solid #000;
+    font-size: 5vw;
+    font-weight: 300;
+    line-height: .95em;
+    text-decoration: none;
+    transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
+    display: block;
+    position: relative;
 }
 
 .headerTitle {
-    font-size: 18px;
     font-family: 'Alegreya Sans';
-    margin-top: -12px;
-    /* padding: 64px; */
-    color: #000000;
+    z-index: 100;
+    text-align: left;
+    color: #191919;
+    text-transform: uppercase;
+    border: 0 solid #000;
+    font-size: 5vw;
+    font-weight: 300;
+    line-height: .95em;
+    text-decoration: none;
+    transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
+    display: block;
+    position: relative;
 }
+
+.headerBreak {
+    padding: 20px;
+}
+
+.headerLinks {
+    width: 40vw;
+}
+
+.nav-link {
+    font-family: 'Alegreya Sans ExtraBold';
+    z-index: 100;
+    text-align: left;
+    color: #191919;
+    text-transform: uppercase;
+    border: 0 solid #000;
+    font-size: 5vw;
+    font-weight: 300;
+    line-height: .95em;
+    text-decoration: none;
+    transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
+    display: block;
+    position: relative;
+}
+
+.nav-link:hover {
+    font-style: italic;
+    letter-spacing: 1px;
+    transform: translate(10px);
+    color: #191919;
+}
+
 </style>

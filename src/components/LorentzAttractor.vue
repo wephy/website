@@ -1,8 +1,8 @@
 <template>
     <div ref="background" class="lorentz-background"></div>
     <div class="control-panel">
-        <button class="decrease-points-button" @click="decreaseNumberOfPoints">-</button>
-        <button class="increase-points-button" @click="increaseNumberOfPoints">+</button>
+        <!-- <button class="decrease-points-button" @click="decreaseNumberOfPoints">-</button>
+        <button class="increase-points-button" @click="increaseNumberOfPoints">+</button> -->
     </div>
 </template>
 
@@ -10,13 +10,13 @@
 import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 import * as THREE from 'three';
 
-const n = ref(4); // Number of points, initial value
+const n = ref(7); // Number of points, initial value
 
 // Define types for the arrays
 const geometries: THREE.BufferGeometry[] = [];
 const vertices: THREE.Vector3[][] = [];
 const materials: THREE.PointsMaterial[] = [];
-const pointSize = 2; // Adjust this value for point thickness
+const pointSize = 3; // Adjust this value for point thickness
 const fadeDuration = 100; // Number of frames over which points fade
 
 // Refs for the DOM elements
@@ -74,8 +74,8 @@ const initThree = () => {
     const rho = 28;
     const beta = 8 / 3;
     const startPoints = Array.from({ length: n.value }, (_, i) => ({
-        x: Math.random() * 3 * n.value - 3,
-        y: i,
+        x: Math.random() * 3 * n.value - 10,
+        y: Math.random() * 3 * i,
         z: i * 2
     }));
 
@@ -132,25 +132,25 @@ const initThree = () => {
     });
 };
 
-const increaseNumberOfPoints = () => {
-    if (n.value == 15) {
-        return
-    }
-    n.value += 1; // Increase the number of points by 1
-    nextTick(() => {
-        initThree(); // Reinitialize the Three.js scene with the new number of points
-    });
-};
+// const increaseNumberOfPoints = () => {
+//     if (n.value == 15) {
+//         return
+//     }
+//     n.value += 1; // Increase the number of points by 1
+//     nextTick(() => {
+//         initThree(); // Reinitialize the Three.js scene with the new number of points
+//     });
+// };
 
-const decreaseNumberOfPoints = () => {
-    if (n.value == 1) {
-        return
-    }
-    n.value -= 1; // Decrease the number of points by 1
-    nextTick(() => {
-        initThree(); // Reinitialize the Three.js scene with the new number of points
-    });
-};
+// const decreaseNumberOfPoints = () => {
+//     if (n.value == 1) {
+//         return
+//     }
+//     n.value -= 1; // Decrease the number of points by 1
+//     nextTick(() => {
+//         initThree(); // Reinitialize the Three.js scene with the new number of points
+//     });
+// };
 
 // Initialize Three.js on component mount
 onMounted(initThree);
