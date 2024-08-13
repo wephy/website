@@ -92,7 +92,7 @@ html {
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: 5vw;
-    font-weight: 300;
+    /* font-weight: 300; */
     line-height: .95em;
     text-decoration: none;
     transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
@@ -108,7 +108,7 @@ html {
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: 5vw;
-    font-weight: 300;
+    /* font-weight: 300; */
     line-height: .95em;
     text-decoration: none;
     transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
@@ -132,7 +132,7 @@ html {
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: 5vw;
-    font-weight: 300;
+    /* font-weight: 300; */
     line-height: .95em;
     text-decoration: none;
     transition: transform .3s ease-in-out, color .3s ease-in-out, font-size .3s ease-in-out;
