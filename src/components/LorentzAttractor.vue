@@ -7,7 +7,7 @@
         </div>
         <div v-if="isDtHigh" class="warning-message">WARNING: UNSTABLE. Simulation speed is too high!</div>
         <div class="speed">
-            Speed: {{ (dt * 500).toFixed(3) }}
+            Speed: {{ (dt * 571.42857).toFixed(3) }}
             <button class="decrease-dt-button" @click="decreaseDt">-</button>
             <button class="increase-dt-button" @click="increaseDt">+</button>
         </div>
@@ -19,6 +19,7 @@
 import { ref, onMounted, onUnmounted, computed, nextTick } from 'vue';
 import * as THREE from 'three';
 
+const dt = ref(0.00175);
 const n = 15; // Number of points, initial value
 
 // Define types for the arrays
@@ -35,10 +36,8 @@ let scene: THREE.Scene | null = null;
 let camera: THREE.PerspectiveCamera | null = null;
 let renderer: THREE.WebGLRenderer | null = null;
 
-const dt = ref(0.002);
-
 // Computed property to check if dt is greater than 0.5
-const isDtHigh = computed(() => dt.value * 500 > 10);
+const isDtHigh = computed(() => dt.value * 600 > 10);
 
 const sigma = 10;
     const rho = 28;
