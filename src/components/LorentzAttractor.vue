@@ -27,7 +27,7 @@ const geometries: THREE.BufferGeometry[] = [];
 const vertices: THREE.Vector3[][] = [];
 const materials: THREE.PointsMaterial[] = [];
 const pointSize = 3; // Adjust this value for point thickness
-const fadeDuration = 100; // Number of frames over which points fade
+const fadeDuration = 200; // Number of frames over which points fade
 
 // Refs for the DOM elements
 const background = ref<HTMLDivElement | null>(null);
@@ -203,7 +203,7 @@ onMounted(initThree);
     width: min(300px, 100vw);
     text-align: left;
     font-size: min(24px, 5vw);
-    right: 20px;
+    right: 0px;
     bottom: 20px;
 }
 
@@ -219,7 +219,8 @@ onMounted(initThree);
 
 @keyframes flash {
   0% { opacity: 1; }
-  50% { opacity: 0; }
+  40% { opacity: 0; }
+  80-% { opacity: 1; }
   100% { opacity: 1; }
 }
 
@@ -231,6 +232,6 @@ onMounted(initThree);
     font-size: max(5vw, 10vh);
     font-weight: 800;
     font-family: "JuliaMono-Black";
-    animation: flash 0.8s infinite; /* Adjust duration and iteration as needed */
+    animation: flash 1s infinite; /* Adjust duration and iteration as needed */
 }
 </style>
