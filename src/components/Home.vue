@@ -29,9 +29,9 @@
                 <div class="headerTitle">
                     Mathematician, Physicist, Programmer
                 </div>
-                <div class="headerLinks">
+                <!-- <div class="headerLinks">
                     Joseph Webb
-                </div>
+                </div> -->
             </div>
         </section>
     </div>
@@ -57,11 +57,13 @@ html {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    color: #191919;
 }
 
 .background {
     position: fixed;
-    background: #E6E6E6;
+    /* background: #ffffff; */
+    background: #f0ede7;
     top: 0;
     left: 0;
     width: 100%;
@@ -85,7 +87,6 @@ html {
     /* margin-top: 24px;
     margin-left: 24px; */
     /* padding: 64px; */
-    color: #000000;
 }
 
 .headerTitle {

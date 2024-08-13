@@ -1,44 +1,65 @@
 <template>
     <div ref="background" class="lorentz-background"></div>
+    <div class="control-panel">
+        <button class="decrease-points-button" @click="decreaseNumberOfPoints">-</button>
+        <button class="increase-points-button" @click="increaseNumberOfPoints">+</button>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 import * as THREE from 'three';
+
+const n = ref(2); // Number of points, initial value
 
 // Define types for the arrays
 const geometries: THREE.BufferGeometry[] = [];
 const vertices: THREE.Vector3[][] = [];
 const materials: THREE.PointsMaterial[] = [];
-
-const n = 15; // Number of paths
 const pointSize = 2; // Adjust this value for point thickness
 const fadeDuration = 100; // Number of frames over which points fade
-// const fadeStep = 1 / fadeDuration; // Fade step per frame
 
 // Refs for the DOM elements
 const background = ref<HTMLDivElement | null>(null);
 
+let scene: THREE.Scene | null = null;
+let camera: THREE.PerspectiveCamera | null = null;
+let renderer: THREE.WebGLRenderer | null = null;
+
 const initThree = () => {
     if (!background.value) return;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // Clear previous scene if it exists
+    while (background.value.firstChild) {
+        background.value.removeChild(background.value.firstChild);
+    }
 
-    // Create renderer with alpha (transparency) enabled
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 1000);
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     background.value.appendChild(renderer.domElement);
-
-    // Set renderer clear color to transparent
     renderer.setClearColor(0x000000, 0); // Fully transparent
 
-    for (let i = 0; i < n; i++) {
-        // Create geometry and material for each path
+    function getRandomPastelColor() {
+        const x = Math.random();
+        const y = -(Math.cos(Math.PI * x) - 1) / 2;
+        const hue = Math.floor(y * 360);
+        const saturation = 90;
+        const lightness = Math.floor(Math.random() * 20) + 65;
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
+
+    // Initialize arrays
+    geometries.length = 0;
+    vertices.length = 0;
+    materials.length = 0;
+
+    for (let i = 0; i < n.value; i++) {
         geometries[i] = new THREE.BufferGeometry();
         vertices[i] = [];
         materials[i] = new THREE.PointsMaterial({
-            color: Math.random() * 0xffffff, // Random color for each path
+            color: getRandomPastelColor(),
             size: pointSize,
             sizeAttenuation: true,
             transparent: true,
@@ -49,11 +70,10 @@ const initThree = () => {
         scene.add(points);
     }
 
-    // Initialize paths with different starting points
     const sigma = 10;
     const rho = 28;
     const beta = 8 / 3;
-    const startPoints = Array.from({ length: n }, (_, i) => ({
+    const startPoints = Array.from({ length: n.value }, (_, i) => ({
         x: i * 2 - 5,
         y: i,
         z: i * 2
@@ -61,7 +81,7 @@ const initThree = () => {
 
     const updateAttractors = () => {
         const dt = 0.005;
-        for (let i = 0; i < n; i++) {
+        for (let i = 0; i < n.value; i++) {
             const { x, y, z } = startPoints[i];
             const dx = sigma * (y - x) * dt;
             const dy = (x * (rho - z) - y) * dt;
@@ -72,38 +92,65 @@ const initThree = () => {
 
             vertices[i].push(new THREE.Vector3(startPoints[i].x, startPoints[i].y, startPoints[i].z));
 
-            // Limit the number of points
             if (vertices[i].length > 3 * fadeDuration) {
                 vertices[i].splice(0, 3); // Remove the oldest point for path i
             }
 
-            // Update geometry attributes
             geometries[i].setAttribute('position', new THREE.BufferAttribute(new Float32Array(vertices[i].flatMap(v => [v.x, v.y, v.z])), 3));
-            // Update point opacity to create fading effect
-            // materials[i].opacity = Math.max(0, materials[i].opacity - fadeStep);
         }
     };
 
     const animate = () => {
-        requestAnimationFrame(animate);
-        updateAttractors();
-
-        // Move the camera
-        camera.position.set(20, 90, 60);
-        camera.lookAt(- window.innerWidth / 50 - 10, -80, window.innerWidth / 50 - 20);
-
-        renderer.render(scene, camera);
+        if (renderer && scene && camera) {
+            requestAnimationFrame(animate);
+            updateAttractors();
+            camera.position.set(20, 90, 60);
+            camera.lookAt(- window.innerWidth / 50 - 10, -80, window.innerWidth / 50 - 20);
+            renderer.render(scene, camera);
+        }
     };
 
     animate();
 
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        if (camera) {
+    const onResize = () => {
+        if (camera && renderer) {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
+    };
+
+    window.addEventListener('resize', onResize);
+
+    // Clean up on unmount
+    onUnmounted(() => {
+        if (renderer) {
+            renderer.dispose();
+        }
+        if (scene) {
+            scene.dispose();
+        }
+        window.removeEventListener('resize', onResize);
+    });
+};
+
+const increaseNumberOfPoints = () => {
+    if (n.value == 15) {
+        return
+    }
+    n.value += 1; // Increase the number of points by 1
+    nextTick(() => {
+        initThree(); // Reinitialize the Three.js scene with the new number of points
+    });
+};
+
+const decreaseNumberOfPoints = () => {
+    if (n.value == 1) {
+        return
+    }
+    n.value -= 1; // Decrease the number of points by 1
+    nextTick(() => {
+        initThree(); // Reinitialize the Three.js scene with the new number of points
     });
 };
 
@@ -119,5 +166,31 @@ onMounted(initThree);
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.decrease-points-button {
+    position: fixed;
+    bottom: 20px;
+    right: 100px;
+    /* padding: 10px 20px; */
+    background-color: #191919;
+    color: white;
+    border: none;
+    font-size: 24px;
+    /* border-radius: 5px; */
+    cursor: pointer;
+}
+
+.increase-points-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* padding: 10px 20px; */
+    background-color: #191919;
+    color: white;
+    border: none;
+    font-size: 24px;
+    /* border-radius: 5px; */
+    cursor: pointer;
 }
 </style>
