@@ -179,6 +179,7 @@ onMounted(initThree);
 </script>
 
 <style scoped>
+
 .lorentz-background {
     position: fixed;
     flex: 1;
@@ -194,19 +195,17 @@ onMounted(initThree);
 .containerControlPanel {
   width: 100vw;
   height: 100vh; /* Full height of the viewport */
-  padding: 0;
 }
 
 
 .control-panel {
     font-family: "JuliaMono-Regular";
-    position: absolute;
+    position: fixed;
     width: min(300px, 100vw);
-    bottom: 35px;
-    right: 0px;
     text-align: left;
     font-size: min(24px, 5vw);
-    padding: 0;
+    right: 20px;
+    bottom: 20px;
 }
 
 .increase-dt-button, .decrease-dt-button {
