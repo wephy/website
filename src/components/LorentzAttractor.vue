@@ -37,7 +37,7 @@ let camera: THREE.PerspectiveCamera | null = null;
 let renderer: THREE.WebGLRenderer | null = null;
 
 // Computed property to check if dt is greater than 0.5
-const isDtHigh = computed(() => dt.value * 600 > 10);
+const isDtHigh = computed(() => dt.value * 571 > 10);
 
 const sigma = 10;
     const rho = 28;
@@ -154,9 +154,9 @@ const initThree = () => {
 };
 
 const increaseDt = () => {
-    // if (dt.value == 0.001) {
-    //     return
-    // }
+    if (dt.value * 571 > 10) {
+        return
+    }
     dt.value *= 2;
     nextTick(() => {
         initThree();
