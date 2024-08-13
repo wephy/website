@@ -43,7 +43,6 @@ const initThree = () => {
 
     function getRandomPastelColor() {
         const x = Math.random();
-        let y = 0;
         let hue = 0;
         if (x < 0.5) {
             hue = Math.floor(x * 360);
