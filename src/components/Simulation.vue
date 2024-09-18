@@ -17,37 +17,37 @@
 
 <script setup lang="ts">
 
-import { onMounted, ref } from 'vue';
+// import { onMounted, ref } from 'vue';
 
-const canvas = ref(null);
+// const canvas = ref(null);
 
-function animate() {
-  const ctx = canvas.value.getContext('2d');
-  let x = 0;
-  const y = 50;
-  const radius = 20;
+// function animate() {
+//   const ctx = canvas.value.getContext('2d');
+//   let x = 0;
+//   const y = 50;
+//   const radius = 20;
 
-  function draw() {
-    ctx.clearRect(0, 0, canvas.value.width, canvas.value.height); // Clear the canvas
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2, false); // Draw a circle
-    ctx.fillStyle = 'hsl(200, 100%, 50%)'; // Fill with a color
-    ctx.fill();
-    x += 2; // Move the circle to the right
-    if (x > canvas.value.width) {
-      x = 0; // Reset position when the circle goes off-screen
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-}
+//   function draw() {
+//     ctx.clearRect(0, 0, canvas.value.width, canvas.value.height); // Clear the canvas
+//     ctx.beginPath();
+//     ctx.arc(x, y, radius, 0, Math.PI * 2, false); // Draw a circle
+//     ctx.fillStyle = 'hsl(200, 100%, 50%)'; // Fill with a color
+//     ctx.fill();
+//     x += 2; // Move the circle to the right
+//     if (x > canvas.value.width) {
+//       x = 0; // Reset position when the circle goes off-screen
+//     }
+//     requestAnimationFrame(draw);
+//   }
+//   draw();
+// }
 
-onMounted(() => {
-  const canvasElement = canvas.value;
-  canvasElement.width = window.innerWidth;
-  canvasElement.height = window.innerHeight;
-  animate();
-});
+// onMounted(() => {
+//   const canvasElement = canvas.value;
+//   canvasElement.width = window.innerWidth;
+//   canvasElement.height = window.innerHeight;
+//   animate();
+// });
 
 
 
