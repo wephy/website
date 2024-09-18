@@ -9,13 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "three": "^0.167.1",
+    "regl": "^2.1.0",
     "vue": "^3.4.31",
     "vue-pdf-embed": "^2.1.0",
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
-    "@types/three": "^0.167.1",
     "@vitejs/plugin-vue": "^5.0.5",
     "typescript": "^5.2.2",
     "vite": "^5.3.4",

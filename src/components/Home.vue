@@ -4,7 +4,7 @@
 <template>
     <div id="home">
         <div class="background"></div>
-        <LorentzAttractor />
+        <Simulation />
 
         <section>
             <div class="container">
@@ -26,11 +26,11 @@
 </template>
 
 <script lang="ts">
-import LorentzAttractor from './LorentzAttractor.vue';
+import Simulation from './Simulation.vue';
 
 export default {
     components: {
-        LorentzAttractor
+        Simulation
     }
 }
 
@@ -80,7 +80,7 @@ html {
     color: #010203;
     text-transform: uppercase;
     font-size: max(7vh, 4.7vw);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 0.9em;
     text-decoration: none;
     transition: transform .3s ease-in-out, font-size .2s ease-in-out;
@@ -94,7 +94,7 @@ html {
     color: #010203;
     text-transform: uppercase;
     font-size: max(2.2vh, 1.48vw);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 0.9em;
     text-decoration: none;
     transition: transform .3s ease-in-out, font-size .2s ease-in-out;
@@ -117,7 +117,7 @@ html {
     text-transform: uppercase;
     border: 0 solid #000;
     font-size: calc(max(7vw, 7vh));
-    font-weight: 800;
+    font-weight: 900;
     line-height: 1em;
     text-decoration: none;
     transition: transform .5s ease-in-out, font-size .2s ease-in-out;
@@ -130,5 +130,4 @@ html {
     transform: translate(40px);
     color: #010203;
 }
-
 </style>

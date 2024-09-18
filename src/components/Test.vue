@@ -3,6 +3,7 @@
 </script>
 
 <template>
+    Testing
 </template>
 
 <style></style>
