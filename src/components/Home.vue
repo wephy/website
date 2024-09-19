@@ -3,18 +3,19 @@
 
 <template>
     <div id="home">
-        <div class="background"></div>
         <Simulation />
+        <div class="background"></div>
 
         <section>
             <div class="container">
                 <div class="headerName">
                     Joseph <span>We</span>bb
                 </div>
+                <div class="headerBreak1"></div>
                 <div class="headerTitle">
                     Mathematician, <span>Phy</span>sicist, Programmer
                 </div>
-                <div class="headerBreak"></div>
+                <div class="headerBreak2"></div>
                 <div class="headerLinks">
                     <a class="nav-link" href="/cv.pdf">CV</a>
                     <a class="nav-link" href="https://linkedin.com/in/wephy">LinkedIn</a>
@@ -38,6 +39,12 @@ export default {
 
 
 <style>
+#home {
+    position: relative;
+    z-index: 1;
+    /* Ensure content stays on top of Simulation */
+}
+
 body,
 html {
     margin: 0;
@@ -53,11 +60,12 @@ html {
     position: fixed;
     /* background: #ffffff; */
     background: #fefdfc;
+    /* background: transparent; */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
 }
 
 .container {
@@ -77,13 +85,13 @@ html {
 .headerName {
     z-index: 100;
     text-align: left;
-    color: #010203;
-    text-transform: uppercase;
-    font-size: max(7vh, 4.7vw);
-    font-weight: 500;
-    line-height: 0.9em;
+    color: #2150ce;
+    /* text-transform: uppercase; */
+    font-size: calc(0.8 * max(min(15vh, 10vw), 10vh));
+    font-weight: 800;
+    line-height: 1.3em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, font-size .2s ease-in-out;
+    transition: transform .3s ease-in-out, font-size .3s ease-in-out;
     display: block;
     position: relative;
 }
@@ -92,18 +100,22 @@ html {
     z-index: 100;
     text-align: left;
     color: #010203;
-    text-transform: uppercase;
-    font-size: max(2.2vh, 1.48vw);
-    font-weight: 500;
-    line-height: 0.9em;
+    /* text-transform: uppercase; */
+    font-size: calc(0.25 * max(min(15vh, 10vw), 10vh));
+    font-weight: 400;
+    line-height: 1.1em;
     text-decoration: none;
-    transition: transform .3s ease-in-out, font-size .2s ease-in-out;
+    transition: transform .3s ease-in-out, font-size .3s ease-in-out;
     display: block;
     position: relative;
 }
 
-.headerBreak {
-    padding: 20px;
+.headerBreak1 {
+    padding: 0px;
+}
+
+.headerBreak2 {
+    padding: 30px;
 }
 
 .headerLinks {
@@ -115,18 +127,17 @@ html {
     text-align: left;
     color: #010203;
     text-transform: uppercase;
-    border: 0 solid #000;
-    font-size: calc(max(7vw, 7vh));
-    font-weight: 900;
-    line-height: 1em;
+    font-size: calc(0.8 * max(min(15vh, 10vw), 10vh));
+    font-weight: 800;
+    line-height: 0.9em;
     text-decoration: none;
-    transition: transform .5s ease-in-out, font-size .2s ease-in-out;
+    transition: transform .5s ease-in-out, font-size .5s ease-in-out, letter-spacing .5s ease-in-out;
     display: block;
 }
 
 .nav-link:hover {
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     transform: translate(40px);
     color: #010203;
 }
