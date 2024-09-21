@@ -3,17 +3,12 @@
 
 <template>
     <div id="home">
-        <!-- <my-canvas style="width: 100%; height: 600px;">
-            <my-box></my-box>
-        </my-canvas> -->
+        <Tutorial />
 
-        <!-- <Simulation /> -->
-
-        <div class="background"></div>
+        <!-- <div class="background"></div> -->
 
         <main class="content">
             <div class="frame">
-
 
                 <div class="headerName">
                     Joseph Webb
@@ -33,18 +28,21 @@
 </template>
 
 <script>
-// import MyCanvas from './MyCanvas.vue';
-// import MyBox from './MyBox.vue';
+import Tutorial from './Tutorial.vue';
 export default {
     name: 'home',
     components: {
-        // MyCanvas,
-        // MyBox,
+        Tutorial
     },
 };
 </script>
 
 <style>
+:root {
+    --font-size: calc(max(min(10vh, 10vw), 8vh));
+    --padding: calc(0.4 * var(--font-size));
+}
+
 #home {
     position: fixed;
     left: 0;
@@ -61,7 +59,6 @@ html {
     background-color: #fefdfc;
     font-family: "Alegreya Sans";
     font-weight: 600;
-    font-size: 24px;
     font-feature-settings: "palt";
     overflow: hidden;
     line-height: 1;
@@ -70,64 +67,65 @@ html {
 .frame {
     position: fixed;
     z-index: 10;
-    left: 30px;
-    right: 30px;
-    top: 30px;
-    bottom: 30px;
-    /* mix-blend-mode: difference; */
-    /* pointer-events: none; */
+    left: var(--padding);
+    right: var(--padding);
+    top: var(--padding);
+    bottom: var(--padding);
+    pointer-events: none;
 }
 
 .headerName {
     text-align: left;
     color: #2150ce;
-    font-size: calc(0.8 * max(min(15vh, 10vw), 10vh));
+    font-size: calc(var(--font-size));
     font-weight: 800;
-    margin-top: calc(-0.1 * max(min(15vh, 10vw), 10vh));
-}
-
-.background {
-    position: fixed;
-    /* background: #ffffff; */
-    background: #fefdfc;
-    /* background: transparent; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    margin-top: calc(-0.09 * var(--font-size));
 }
 
 .headerTitle {
     text-align: left;
     color: #010203;
-    font-size: calc(0.25 * max(min(15vh, 10vw), 10vh));
+    font-size: calc(0.348 * var(--font-size));
     font-weight: 400;
+    margin-top: calc(0.25 * var(--padding));
 }
 
+/* .background { */
+/* position: fixed; */
+/* background: #ffffff; */
+/* background: #fefdfc; */
+/* background: transparent; */
+/* top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10; */
+/* } */
+
+
+
 .headerLinks {
-    /* width: calc(0.25 * max(min(15vh, 10vw), 10vh)); */
-    margin-top: 50px;
+    margin-top: calc(2 * var(--padding));
+    width: 0px;
 }
 
 .nav-link {
-    /* z-index: 100; */
     text-align: left;
     color: #010203;
     text-transform: uppercase;
-    font-size: calc(0.7 * max(min(15vh, 10vw), 10vh));
+    font-size: calc(var(--font-size));
     font-weight: 600;
     line-height: 0.9em;
-    /* text-decoration: none; */
-    transition: transform .2s ease-in-out, font-size .1s ease-in-out, letter-spacing .1s ease-in-out;
+    transition: transform .1s ease-in-out, letter-spacing .2s ease-in-out;
     display: block;
+    pointer-events: auto;
 }
 
 .nav-link:hover {
     font-weight: 600;
     font-style: italic;
-    letter-spacing: 1px;
-    transform: translate(10px);
+    letter-spacing: calc(0.005 * var(--padding));
+    transform: translate(calc(0.1 * var(--padding)));
     color: #010203;
 }
 </style>
