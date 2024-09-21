@@ -8,17 +8,21 @@ const controlsState = reactive({
     minDistance: 0,
     maxDistance: 100,
 })
+
+// Reactive variable for window height
+const pos = 5000 / Math.min(window.innerHeight, window.innerWidth);
 </script>
+
 
 <template>
     <div id="tutorial">
         <TresCanvas clear-color="#f5f5f5" window-size>
 
-            <TresPerspectiveCamera :position="[5, 5, 5]" />
+            <TresPerspectiveCamera :position="[pos, pos, pos]" />
             <CameraControls v-bind="controlsState" make-default />
             <TresGridHelper :position="[0, -1, 0]" />
             <Box :scale="2">
-                <TresMeshToonMaterial color="orange" />
+                <TresMeshToonMaterial color="#2150CE" />
             </Box>
             <TresAmbientLight />
             <TresDirectionalLight :position="[0, 2, 4]" />
