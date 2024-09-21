@@ -15,7 +15,7 @@ const pos = 5000 / Math.min(window.innerHeight, window.innerWidth);
 
 <script setup lang="ts">
 import { useRenderLoop, TresCanvas } from '@tresjs/core';
-import { ShaderMaterial, SphereGeometry, Vector3, Color, MathUtils } from 'three/src/Three';
+import { ShaderMaterial, SphereGeometry, Vector3, Color, MathUtils } from 'three';
 import Levioso from "./Levioso.vue"
 
 const rgb = (r: number, g: number, b: number) => new Color(r / 255, g / 255, b / 255)
