@@ -19,15 +19,15 @@ import { ShaderMaterial, SphereGeometry, Vector3, Color, MathUtils } from 'three
 import Levioso from "./Levioso.vue"
 
 const rgb = (r: number, g: number, b: number) => new Color(r / 255, g / 255, b / 255)
-const BG_COLOR_BOTTOM_BLUISH = rgb(200, 235, 217)
-const BG_COLOR_TOP_BLUISH = rgb(107, 187, 240)
-const BG_COLOR_BOTTOM_ORANGISH = rgb(170, 235, 217)
-const BG_COLOR_TOP_ORANGISH = rgb(77, 187, 255)
+const BG_COLOR_BOTTOM_BLUISH = rgb(174, 223, 231)
+const BG_COLOR_TOP_BLUISH = rgb(82, 187, 249)
+const BG_COLOR_BOTTOM_ORANGISH = rgb(253, 167, 124)
+const BG_COLOR_TOP_ORANGISH = rgb(243, 171, 84)
 
-const SPHERE_COLOR_BOTTOM_BLUISH = rgb(220, 190, 20)
-const SPHERE_COLOR_TOP_BLUISH = rgb(240, 120, 20)
-const SPHERE_COLOR_BOTTOM_ORANGISH = rgb(120, 235, 124)
-const SPHERE_COLOR_TOP_ORANGISH = rgb(20, 187, 240)
+const SPHERE_COLOR_BOTTOM_BLUISH = rgb(110, 175, 202)
+const SPHERE_COLOR_TOP_BLUISH = rgb(47, 133, 245)
+const SPHERE_COLOR_BOTTOM_ORANGISH = rgb(253, 157, 19)
+const SPHERE_COLOR_TOP_ORANGISH = rgb(248, 142, 25)
 
 const SPHERE_COUNT = 250
 const SPHERE_SCALE_COEFF = 3
@@ -135,7 +135,7 @@ useRenderLoop().onLoop(({ elapsed }) => {
 <template>
     <TresCanvas clear-color="white" :shadows="false">
         <TresMesh :scale="20" :rotation-x="Math.PI * 1.5" :material="bgMaterial" :geometry="bgGeometry"></TresMesh>
-        <TresPerspectiveCamera :position="[0, 0, 23]" />
+        <TresPerspectiveCamera :args="[45, 0.5, 0.1, 1000]" :position="[0, 0, 23]" />
         <Levioso :speed="0.7" :float-factor="20">
             <TresGroup :rotation-x="Math.PI * 1.5">
                 <TresMesh v-for="i of spheres" :position="positions[i]" :scale="sizes[i]" :material="sphereMaterial"
