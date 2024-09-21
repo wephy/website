@@ -146,16 +146,6 @@ useRenderLoop().onLoop(({ elapsed }) => {
 </template>
 
 <!-- <template>
-    <Background />
-    <div class="overlay">
-        <div class="overlay-center">
-            <h1>Hola</h1>
-        </div>
-    </div>
-</template> -->
-
-
-<!-- <template>
     <div id="tutorial">
         <TresCanvas clear-color="#f5f5f5" window-size>
 
@@ -173,11 +163,13 @@ useRenderLoop().onLoop(({ elapsed }) => {
 </template> -->
 
 <style>
-#tutorial {
+body,
+html {
     margin: 0;
     padding: 0;
-    height: 100%;
+    position: absolute;
+    overflow: hidden;
     width: 100%;
-
+    height: 100%;
 }
 </style>
