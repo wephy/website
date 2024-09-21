@@ -85,7 +85,7 @@ html {
 .headerTitle {
     text-align: left;
     color: #010203;
-    font-size: calc(0.348 * var(--font-size));
+    font-size: calc(0.303 * var(--font-size));
     font-weight: 400;
     margin-top: calc(0.25 * var(--padding));
 }

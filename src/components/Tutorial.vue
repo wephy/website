@@ -12,7 +12,7 @@ const controlsState = reactive({
 
 <template>
     <div id="tutorial">
-        <TresCanvas clear-color="#c5cbe1" window-size>
+        <TresCanvas clear-color="#f5f5f5" window-size>
 
             <TresPerspectiveCamera :position="[5, 5, 5]" />
             <CameraControls v-bind="controlsState" make-default />
