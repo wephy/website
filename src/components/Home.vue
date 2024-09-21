@@ -33,13 +33,13 @@
 </template>
 
 <script>
-import MyCanvas from './MyCanvas.vue';
-import MyBox from './MyBox.vue';
+// import MyCanvas from './MyCanvas.vue';
+// import MyBox from './MyBox.vue';
 export default {
     name: 'home',
     components: {
-        MyCanvas,
-        MyBox,
+        // MyCanvas,
+        // MyBox,
     },
 };
 </script>
