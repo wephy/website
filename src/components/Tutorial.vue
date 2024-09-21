@@ -158,8 +158,38 @@ html {
     height: 100%;
 }
 
-#canvas {
-    height: 100%;
-    width: 100%;
+/* phone */
+@media (max-width: 599px) {
+    h1 {
+        font-size: 6em;
+    }
+}
+
+/* tablet portrait up */
+@media (min-width: 600px) {
+    h1 {
+        font-size: 10em;
+    }
+}
+
+/* tablet landscape */
+@media (min-width: 900px) {
+    h1 {
+        font-size: 14em;
+    }
+}
+
+/* tablet desktop up */
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 18em;
+    }
+}
+
+/* tablet big desktop up */
+@media (min-width: 1800px) {
+    h1 {
+        font-size: 24em;
+    }
 }
 </style>
