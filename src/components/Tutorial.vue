@@ -1,18 +1,3 @@
-<!-- <script setup lang="ts">
-
-import { Box, CameraControls } from '@tresjs/cientos'
-import { TresCanvas } from '@tresjs/core'
-import { reactive } from 'vue'
-
-const controlsState = reactive({
-    minDistance: 0,
-    maxDistance: 100,
-})
-
-// Reactive variable for window height
-const pos = 5000 / Math.min(window.innerHeight, window.innerWidth);
-</script> -->
-
 <script setup lang="ts">
 import { useRenderLoop, TresCanvas } from '@tresjs/core';
 import { ShaderMaterial, SphereGeometry, Vector3, Color, MathUtils } from 'three';
@@ -48,7 +33,7 @@ const randRange = (n = 1) => rand() * n
 const { PI, cos, sin } = Math;
 const PI2 = PI * 2
 const spheres = new Array(SPHERE_COUNT).fill(0).map((_: any, i) => i)
-const sizes = new Array(SPHERE_COUNT).fill(0).map(() => randRange(1) * Math.pow(randRange(), 3))
+const sizes = new Array(SPHERE_COUNT).fill(0).map(() => randRange(1) * Math.pow(randRange(), 3) + 0.05)
 const orbitRadii = new Array(SPHERE_COUNT).fill(0).map(() => MathUtils.lerp(ORBIT_MIN, ORBIT_MAX, randRange()))
 const thetas = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
 const phis = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
@@ -171,5 +156,10 @@ html {
     overflow: hidden;
     width: 100%;
     height: 100%;
+}
+
+#canvas {
+    height: 100%;
+    width: 100%;
 }
 </style>
