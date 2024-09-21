@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
     <div class="my-canvas-wrapper">
         <canvas ref="my-canvas"></canvas>

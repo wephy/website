@@ -1,3 +1,7 @@
+<script setup lang="ts">
+</script>
+
+
 <template>
     <canvas id="tmp_canvas" width="400" height="400"></canvas>
 </template>
