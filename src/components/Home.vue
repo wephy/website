@@ -3,57 +3,87 @@
 
 <template>
     <div id="home">
-        <Simulation />
+        <!-- <my-canvas style="width: 100%; height: 600px;">
+            <my-box></my-box>
+        </my-canvas> -->
+
+        <!-- <Simulation /> -->
+
         <div class="background"></div>
 
-        <section>
-            <div class="container">
+        <main class="content">
+            <div class="frame">
+
+
                 <div class="headerName">
-                    Joseph <span>We</span>bb
+                    Joseph Webb
                 </div>
-                <div class="headerBreak1"></div>
                 <div class="headerTitle">
-                    Mathematician, <span>Phy</span>sicist, Programmer
+                    Mathematician, Physicist, Programmer
                 </div>
-                <div class="headerBreak2"></div>
                 <div class="headerLinks">
                     <a class="nav-link" href="/cv.pdf">CV</a>
                     <a class="nav-link" href="https://linkedin.com/in/wephy">LinkedIn</a>
                     <a class="nav-link" href="https://github.com/wephy">GitHub</a>
                 </div>
+
             </div>
-        </section>
+        </main>
     </div>
 </template>
 
-<script lang="ts">
-import Simulation from './Simulation.vue';
-
+<script>
+import MyCanvas from './MyCanvas.vue';
+import MyBox from './MyBox.vue';
 export default {
+    name: 'home',
     components: {
-        Simulation
-    }
-}
-
+        MyCanvas,
+        MyBox,
+    },
+};
 </script>
-
 
 <style>
 #home {
-    position: relative;
-    z-index: 1;
-    /* Ensure content stays on top of Simulation */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fefdfc;
+    color: #010203;
+    white-space: nowrap;
 }
 
 body,
 html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    color: #010203;
+    background-color: #fefdfc;
     font-family: "Alegreya Sans";
+    font-weight: 600;
+    font-size: 24px;
+    font-feature-settings: "palt";
+    overflow: hidden;
+    line-height: 1;
+}
+
+.frame {
+    position: fixed;
+    z-index: 10;
+    left: 30px;
+    right: 30px;
+    top: 30px;
+    bottom: 30px;
+    /* mix-blend-mode: difference; */
+    /* pointer-events: none; */
+}
+
+.headerName {
+    text-align: left;
+    color: #2150ce;
+    font-size: calc(0.8 * max(min(15vh, 10vw), 10vh));
+    font-weight: 800;
+    margin-top: calc(-0.1 * max(min(15vh, 10vw), 10vh));
 }
 
 .background {
@@ -65,80 +95,39 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
-}
-
-.container {
-    position: fixed;
-    text-align: left;
-    top: 0;
-    left: 0;
-    margin-top: 24px;
-    margin-left: 24px;
-    padding: 0;
-}
-
-.control-panel {
-    z-index: 1000;
-}
-
-.headerName {
-    z-index: 100;
-    text-align: left;
-    color: #2150ce;
-    /* text-transform: uppercase; */
-    font-size: calc(0.8 * max(min(15vh, 10vw), 10vh));
-    font-weight: 800;
-    line-height: 1.3em;
-    text-decoration: none;
-    transition: transform .3s ease-in-out, font-size .3s ease-in-out;
-    display: block;
-    position: relative;
+    z-index: -1;
 }
 
 .headerTitle {
-    z-index: 100;
     text-align: left;
     color: #010203;
-    /* text-transform: uppercase; */
     font-size: calc(0.25 * max(min(15vh, 10vw), 10vh));
     font-weight: 400;
-    line-height: 1.1em;
-    text-decoration: none;
-    transition: transform .3s ease-in-out, font-size .3s ease-in-out;
-    display: block;
-    position: relative;
-}
-
-.headerBreak1 {
-    padding: 0px;
-}
-
-.headerBreak2 {
-    padding: 30px;
 }
 
 .headerLinks {
-    width: 50vw;
+    /* width: calc(0.25 * max(min(15vh, 10vw), 10vh)); */
+    margin-top: 50px;
 }
 
 .nav-link {
-    z-index: 100;
+    /* z-index: 100; */
     text-align: left;
     color: #010203;
     text-transform: uppercase;
-    font-size: calc(0.8 * max(min(15vh, 10vw), 10vh));
-    font-weight: 800;
+    font-size: calc(0.7 * max(min(15vh, 10vw), 10vh));
+    font-weight: 600;
     line-height: 0.9em;
-    text-decoration: none;
-    transition: transform .5s ease-in-out, font-size .5s ease-in-out, letter-spacing .5s ease-in-out;
+    /* text-decoration: none; */
+    transition: transform .2s ease-in-out, font-size .1s ease-in-out, letter-spacing .1s ease-in-out;
     display: block;
 }
 
 .nav-link:hover {
+    font-weight: 600;
     font-style: italic;
-    letter-spacing: 2px;
-    transform: translate(40px);
+    letter-spacing: 1px;
+    transform: translate(10px);
     color: #010203;
 }
 </style>
