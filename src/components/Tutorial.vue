@@ -133,7 +133,7 @@ useRenderLoop().onLoop(({ elapsed }) => {
 </script>
 
 <template>
-    <TresCanvas clear-color="white" :shadows="false">
+    <TresCanvas clear-color="white" :shadows="false" window-size>
         <TresMesh :scale="20" :rotation-x="Math.PI * 1.5" :material="bgMaterial" :geometry="bgGeometry"></TresMesh>
         <TresPerspectiveCamera :args="[45, 2.0, 0.1, 1000]" :position="[0, 0, 23]" />
         <Levioso :speed="0.7" :float-factor="20">
