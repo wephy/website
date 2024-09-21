@@ -19,10 +19,10 @@ import { ShaderMaterial, SphereGeometry, Vector3, Color, MathUtils } from 'three
 import Levioso from "./Levioso.vue"
 
 const rgb = (r: number, g: number, b: number) => new Color(r / 255, g / 255, b / 255)
-const BG_COLOR_BOTTOM_BLUISH = rgb(48, 172, 255)
-const BG_COLOR_TOP_BLUISH = rgb(32, 66, 252)
-const BG_COLOR_BOTTOM_ORANGISH = rgb(253, 167, 124)
-const BG_COLOR_TOP_ORANGISH = rgb(243, 171, 84)
+const BG_COLOR_BOTTOM_BLUISH = rgb(138, 208, 255)
+const BG_COLOR_TOP_BLUISH = rgb(74, 102, 255)
+const BG_COLOR_BOTTOM_ORANGISH = rgb(255, 220, 189)
+const BG_COLOR_TOP_ORANGISH = rgb(255, 204, 143)
 
 const SPHERE_COLOR_BOTTOM_BLUISH = rgb(110, 175, 202)
 const SPHERE_COLOR_TOP_BLUISH = rgb(47, 133, 245)
