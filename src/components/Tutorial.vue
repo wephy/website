@@ -33,7 +33,7 @@ const randRange = (n = 1) => rand() * n
 const { PI, cos, sin } = Math;
 const PI2 = PI * 2
 const spheres = new Array(SPHERE_COUNT).fill(0).map((_: any, i) => i)
-const sizes = new Array(SPHERE_COUNT).fill(0).map(() => randRange(1) * Math.pow(randRange(), 3) + 0.05)
+const sizes = new Array(SPHERE_COUNT).fill(0).map(() => randRange(1) * Math.pow(randRange() + 0.2, 3) / 4 + 0.02)
 const orbitRadii = new Array(SPHERE_COUNT).fill(0).map(() => MathUtils.lerp(ORBIT_MIN, ORBIT_MAX, randRange()))
 const thetas = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
 const phis = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
