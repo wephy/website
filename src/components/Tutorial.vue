@@ -5,7 +5,7 @@ import Levioso from "./Levioso.vue"
 
 const rgb = (r: number, g: number, b: number) => new Color(r / 255, g / 255, b / 255)
 const BG_COLOR_BOTTOM_BLUISH = rgb(161, 209, 255)
-const BG_COLOR_TOP_BLUISH = rgb(125, 175, 255)
+const BG_COLOR_TOP_BLUISH = rgb(156, 240, 255)
 const BG_COLOR_BOTTOM_ORANGISH = rgb(255, 220, 189)
 const BG_COLOR_TOP_ORANGISH = rgb(255, 204, 143)
 
@@ -37,7 +37,7 @@ const sizes = new Array(SPHERE_COUNT).fill(0).map(() => randRange(1) * Math.pow(
 const orbitRadii = new Array(SPHERE_COUNT).fill(0).map(() => MathUtils.lerp(ORBIT_MIN, ORBIT_MAX, randRange()))
 const thetas = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
 const phis = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
-const positions: [number, number, number][] = orbitRadii.map((rad, i) => ([1 + rad * cos(thetas[i]) * sin(phis[i]), -2 + rad * sin(thetas[i]) * sin(phis[i]), -4 + rad * cos(phis[i])]))
+const positions: [number, number, number][] = orbitRadii.map((rad, i) => ([1 + rad * cos(thetas[i]) * sin(phis[i]), -3 + rad * sin(thetas[i]) * sin(phis[i]), -5 + rad * cos(phis[i])]))
 
 const getGradientMaterial = (colorBottomWarm: Color, colorTopWarm: Color, colorBottomCool: Color, colorTopCool: Color) => {
     return new ShaderMaterial({
