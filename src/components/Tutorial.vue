@@ -4,15 +4,15 @@ import { ShaderMaterial, SphereGeometry, Vector3, Color, MathUtils } from 'three
 import Levioso from "./Levioso.vue"
 
 const rgb = (r: number, g: number, b: number) => new Color(r / 255, g / 255, b / 255)
-const BG_COLOR_BOTTOM_BLUISH = rgb(138, 208, 255)
-const BG_COLOR_TOP_BLUISH = rgb(74, 102, 255)
+const BG_COLOR_BOTTOM_BLUISH = rgb(161, 209, 255)
+const BG_COLOR_TOP_BLUISH = rgb(125, 175, 255)
 const BG_COLOR_BOTTOM_ORANGISH = rgb(255, 220, 189)
 const BG_COLOR_TOP_ORANGISH = rgb(255, 204, 143)
 
 const SPHERE_COLOR_BOTTOM_BLUISH = rgb(110, 175, 202)
 const SPHERE_COLOR_TOP_BLUISH = rgb(47, 133, 245)
-const SPHERE_COLOR_BOTTOM_ORANGISH = rgb(253, 157, 129)
-const SPHERE_COLOR_TOP_ORANGISH = rgb(248, 142, 95)
+const SPHERE_COLOR_BOTTOM_ORANGISH = rgb(255, 206, 163)
+const SPHERE_COLOR_TOP_ORANGISH = rgb(252, 168, 131)
 
 const SPHERE_COUNT = 250
 const SPHERE_SCALE_COEFF = 3
@@ -37,7 +37,7 @@ const sizes = new Array(SPHERE_COUNT).fill(0).map(() => randRange(1) * Math.pow(
 const orbitRadii = new Array(SPHERE_COUNT).fill(0).map(() => MathUtils.lerp(ORBIT_MIN, ORBIT_MAX, randRange()))
 const thetas = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
 const phis = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
-const positions: [number, number, number][] = orbitRadii.map((rad, i) => ([3 + rad * cos(thetas[i]) * sin(phis[i]), 5 + rad * sin(thetas[i]) * sin(phis[i]), -8 + rad * cos(phis[i])]))
+const positions: [number, number, number][] = orbitRadii.map((rad, i) => ([1 + rad * cos(thetas[i]) * sin(phis[i]), -2 + rad * sin(thetas[i]) * sin(phis[i]), -4 + rad * cos(phis[i])]))
 
 const getGradientMaterial = (colorBottomWarm: Color, colorTopWarm: Color, colorBottomCool: Color, colorTopCool: Color) => {
     return new ShaderMaterial({
@@ -118,9 +118,9 @@ useRenderLoop().onLoop(({ elapsed }) => {
 </script>
 
 <template>
-    <TresCanvas clear-color="white" :shadows="false" window-size>
+    <TresCanvas clear-color="white" :shadows="false">
         <TresMesh :scale="20" :rotation-x="Math.PI * 1.5" :material="bgMaterial" :geometry="bgGeometry"></TresMesh>
-        <TresPerspectiveCamera :args="[45, 2.0, 0.1, 1000]" :position="[0, 0, 23]" />
+        <TresPerspectiveCamera :position="[0, 0, 23]" />
         <Levioso :speed="0.7" :float-factor="20">
             <TresGroup :rotation-x="Math.PI * 1.5">
                 <TresMesh v-for="i of spheres" :position="positions[i]" :scale="sizes[i]" :material="sphereMaterial"
@@ -157,5 +157,4 @@ html {
     width: 100%;
     height: 100%;
 }
-
 </style>
