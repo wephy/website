@@ -151,8 +151,8 @@ useRenderLoop().onLoop(({ elapsed }) => {
 
 <style>
 #tutorial {
-    width: 300px;
-    height: 300px;
+    width: calc(max(100vw, 100vh));
+    height: calc(max(100vw, 100vh));
 }
 
 body,
