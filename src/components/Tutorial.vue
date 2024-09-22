@@ -3,6 +3,14 @@ import { useRenderLoop, TresCanvas } from '@tresjs/core';
 import { ShaderMaterial, SphereGeometry, Vector3, Color, MathUtils } from 'three';
 import Levioso from "./Levioso.vue"
 
+import { CameraControls } from '@tresjs/cientos'
+import { reactive } from 'vue'
+
+const controlsState = reactive({
+    minDistance: 10,
+    maxDistance: 30,
+})
+
 const rgb = (r: number, g: number, b: number) => new Color(r / 255, g / 255, b / 255)
 const BG_COLOR_BOTTOM_BLUISH = rgb(161, 209, 255)
 const BG_COLOR_TOP_BLUISH = rgb(156, 240, 255)
@@ -37,7 +45,7 @@ const sizes = new Array(SPHERE_COUNT).fill(0).map(() => randRange(1) * Math.pow(
 const orbitRadii = new Array(SPHERE_COUNT).fill(0).map(() => MathUtils.lerp(ORBIT_MIN, ORBIT_MAX, randRange()))
 const thetas = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
 const phis = new Array(SPHERE_COUNT).fill(0).map(() => randRange(PI2))
-const positions: [number, number, number][] = orbitRadii.map((rad, i) => ([1 + rad * cos(thetas[i]) * sin(phis[i]), -3 + rad * sin(thetas[i]) * sin(phis[i]), -5 + rad * cos(phis[i])]))
+const positions: [number, number, number][] = orbitRadii.map((rad, i) => ([rad * cos(thetas[i]) * sin(phis[i]), rad * sin(thetas[i]) * sin(phis[i]), rad * cos(phis[i])]))
 
 const getGradientMaterial = (colorBottomWarm: Color, colorTopWarm: Color, colorBottomCool: Color, colorTopCool: Color) => {
     return new ShaderMaterial({
@@ -122,6 +130,8 @@ useRenderLoop().onLoop(({ elapsed }) => {
         <TresCanvas clear-color="white" :shadows="false">
             <TresMesh :scale="20" :rotation-x="Math.PI * 1.5" :material="bgMaterial" :geometry="bgGeometry"></TresMesh>
             <TresPerspectiveCamera :position="[0, 0, 23]" />
+            <CameraControls v-bind="controlsState" make-default />
+
             <Levioso :speed="0.7" :float-factor="20">
                 <TresGroup :rotation-x="Math.PI * 1.5">
                     <TresMesh v-for="i of spheres" :position="positions[i]" :scale="sizes[i]" :material="sphereMaterial"
