@@ -118,16 +118,18 @@ useRenderLoop().onLoop(({ elapsed }) => {
 </script>
 
 <template>
-    <TresCanvas clear-color="white" :shadows="false">
-        <TresMesh :scale="20" :rotation-x="Math.PI * 1.5" :material="bgMaterial" :geometry="bgGeometry"></TresMesh>
-        <TresPerspectiveCamera :position="[0, 0, 23]" />
-        <Levioso :speed="0.7" :float-factor="20">
-            <TresGroup :rotation-x="Math.PI * 1.5">
-                <TresMesh v-for="i of spheres" :position="positions[i]" :scale="sizes[i]" :material="sphereMaterial"
-                    :geometry="sphereGeometry" />
-            </TresGroup>
-        </Levioso>
-    </TresCanvas>
+    <div id="tutorial">
+        <TresCanvas clear-color="white" :shadows="false">
+            <TresMesh :scale="20" :rotation-x="Math.PI * 1.5" :material="bgMaterial" :geometry="bgGeometry"></TresMesh>
+            <TresPerspectiveCamera :position="[0, 0, 23]" />
+            <Levioso :speed="0.7" :float-factor="20">
+                <TresGroup :rotation-x="Math.PI * 1.5">
+                    <TresMesh v-for="i of spheres" :position="positions[i]" :scale="sizes[i]" :material="sphereMaterial"
+                        :geometry="sphereGeometry" />
+                </TresGroup>
+            </Levioso>
+        </TresCanvas>
+    </div>
 </template>
 
 <!-- <template>
@@ -148,6 +150,11 @@ useRenderLoop().onLoop(({ elapsed }) => {
 </template> -->
 
 <style>
+#tutorial {
+    width: 100vw;
+    height: 100vh;
+}
+
 body,
 html {
     margin: 0;
