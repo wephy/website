@@ -21,9 +21,6 @@
                     <a class="nav-link" href="https://linkedin.com/in/wephy">LinkedIn</a>
                     <a class="nav-link" href="https://github.com/wephy">GitHub</a>
 
-                    <RouterLink class="nav-link top-gap" to="/art">
-                        Art
-                    </RouterLink>
                 </div>
 
             </div>
