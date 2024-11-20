@@ -3,13 +3,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import App from './App.vue'
 import Home from './components/Home.vue'
-import Art from './components/Art.vue'
+// import Art from './components/Art.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {path: "/", name: "Home", component: Home},
-        {path: "/art", name: "Art", component: Art}
+        // {path: "/art", name: "Art", component: Art}
     ]
 })
 
