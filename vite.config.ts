@@ -4,7 +4,6 @@ import glsl from 'vite-plugin-glsl';
 import { templateCompilerOptions } from '@tresjs/core'
 import AutoImport from 'unplugin-auto-import/vite';
 
-
 export default defineConfig({
   plugins: [
     AutoImport({

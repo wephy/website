@@ -3,16 +3,16 @@
 
 <template>
     <div id="home">
-        <Tutorial />
+        <Balls />
 
         <!-- <div class="background"></div> -->
 
         <main class="content">
             <div class="frame">
 
-                <div class="headerName">
+                <RouterLink class="headerName" to="/">
                     Joseph Webb
-                </div>
+                </RouterLink>
                 <div class="headerTitle">
                     Mathematician, Physicist, Programmer
                 </div>
@@ -20,6 +20,10 @@
                     <a class="nav-link" href="/cv.pdf">CV</a>
                     <a class="nav-link" href="https://linkedin.com/in/wephy">LinkedIn</a>
                     <a class="nav-link" href="https://github.com/wephy">GitHub</a>
+
+                    <RouterLink class="nav-link top-gap" to="/art">
+                        Art
+                    </RouterLink>
                 </div>
 
             </div>
@@ -28,22 +32,23 @@
 </template>
 
 <script>
-import Tutorial from './Tutorial.vue';
+import Balls from './Balls.vue';
 export default {
     name: 'home',
     components: {
-        Tutorial
+        Balls
     },
 };
 </script>
 
 <style>
 :root {
-    --font-size: calc(max(min(10vh, 10vw), 8vh));
+    --font-size: calc(0.9 * max(min(10vh, 10vw), 8vh));
     --padding: calc(0.4 * var(--font-size));
 }
 
 #home {
+    text-align: left;
     position: fixed;
     left: 0;
     top: 0;
@@ -56,6 +61,7 @@ export default {
 
 body,
 html {
+    text-align: left;
     background-color: #fefdfc;
     font-family: "Alegreya Sans";
     font-weight: 600;
@@ -75,7 +81,6 @@ html {
 }
 
 .headerName {
-    text-align: left;
     color: #2150ce;
     font-size: calc(var(--font-size));
     font-weight: 800;
@@ -83,26 +88,11 @@ html {
 }
 
 .headerTitle {
-    text-align: left;
     color: #010203;
     font-size: calc(0.303 * var(--font-size));
     font-weight: 400;
     margin-top: calc(0.25 * var(--padding));
 }
-
-/* .background { */
-/* position: fixed; */
-/* background: #ffffff; */
-/* background: #fefdfc; */
-/* background: transparent; */
-/* top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10; */
-/* } */
-
-
 
 .headerLinks {
     margin-top: calc(2 * var(--padding));
@@ -110,13 +100,12 @@ html {
 }
 
 .nav-link {
-    text-align: left;
     color: #010203;
     text-transform: uppercase;
     font-size: calc(var(--font-size));
     font-weight: 600;
     line-height: 0.9em;
-    transition: transform .1s ease-in-out, letter-spacing .2s ease-in-out;
+    transition: transform .3s ease-in-out, letter-spacing .2s ease-in-out;
     display: block;
     pointer-events: auto;
 }
@@ -127,5 +116,9 @@ html {
     letter-spacing: calc(0.005 * var(--padding));
     transform: translate(calc(0.1 * var(--padding)));
     color: #010203;
+}
+
+.top-gap {
+    margin-top: calc(0.5 * var(--font-size));
 }
 </style>
