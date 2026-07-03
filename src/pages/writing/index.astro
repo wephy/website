@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../../config';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Writing" description="Essays and notes by Joseph Webb.">
+  <section class="wrap" style="padding-top: clamp(2.5rem, 8vh, 4rem);">
+    <p class="eyebrow">// {posts.length} {posts.length === 1 ? 'entry' : 'entries'}</p>
+    <h1 style="font-size: clamp(1.7rem,5vw,2.3rem); font-weight:600; letter-spacing:-.02em; margin:.5rem 0 0;">Writing</h1>
+    <div class="list" style="margin-top: 2rem;">
+      {posts.map((post) => (
+        <a class="item" href={withBase(`/writing/${post.id}`)}>
+          <span class="date"><FormattedDate date={post.data.date} /></span>
+          <span class="t">{post.data.title}</span>
+          <span class="arrow">→</span>
+          <span class="d">{post.data.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

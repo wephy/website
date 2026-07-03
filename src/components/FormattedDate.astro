@@ -1,0 +1,8 @@
+---
+interface Props { date: Date; }
+const { date } = Astro.props;
+const iso = date.toISOString().slice(0, 10);
+const yr = date.getUTCFullYear();
+const mo = String(date.getUTCMonth() + 1).padStart(2, '0');
+---
+<time datetime={iso}>{yr} · {mo}</time>

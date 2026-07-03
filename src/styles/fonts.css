@@ -1,0 +1,51 @@
+/* ============================================================================
+   Self-hosted IBM Plex Mono. Serving the font from our own origin (and
+   preloading the 400 weight in BaseHead) means it is ready before first paint,
+   so pages no longer render in a fallback font and re-flow — that was the
+   header "jiggle" on navigation. font-display: optional means the browser
+   picks the font once at load and never swaps mid-life, so a late-arriving
+   font can never re-flow the page (that was the "grows into place" effect).
+   ============================================================================ */
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 300;
+  font-display: optional;
+  src: url("/fonts/IBMPlexMono-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("/fonts/IBMPlexMono-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: optional;
+  src: url("/fonts/IBMPlexMono-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url("/fonts/IBMPlexMono-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: italic;
+  font-weight: 500;
+  font-display: optional;
+  src: url("/fonts/IBMPlexMono-MediumItalic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url("/fonts/IBMPlexMono-SemiBold.woff2") format("woff2");
+}

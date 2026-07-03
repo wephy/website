@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+import { SITE, LINKS, withBase } from '../config';
+import { formatInline } from '../lib/markup';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+
+const publications = (await getCollection('publications', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+
+const introHtml = formatInline(SITE.intro);
+
+---
+<Base>
+  <section class="wrap hero">
+    <p class="eyebrow">// {SITE.role.toLowerCase()}</p>
+    <h1>{SITE.name}</h1>
+    <p class="lede" set:html={introHtml}></p>
+    <div class="linkrow">
+      {LINKS.map((l) => (
+        <a
+          href={withBase(l.href)}
+          class={'external' in l && l.external ? 'ext' : undefined}
+          {...('external' in l && l.external ? { target: '_blank', rel: 'noopener' } : {})}
+        >{l.label}</a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="slabel">publications</div>
+    <div class="list">
+      {publications.map((paper) => (
+        <a
+          class="item"
+          href={paper.data.url}
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="date">
+            <FormattedDate date={paper.data.date} />
+          </span>
+          <span class="t">{paper.data.title}</span>
+          <span class="arrow ext">↗</span>
+          <span class="d">{paper.data.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="slabel">writing</div>
+    <div class="list">
+      {posts.map((post) => (
+        <a class="item" href={withBase(`/writing/${post.id}`)}>
+          <span class="date"><FormattedDate date={post.data.date} /></span>
+          <span class="t">{post.data.title}</span>
+          <span class="arrow">→</span>
+          <span class="d">{post.data.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

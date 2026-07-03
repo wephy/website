@@ -1,0 +1,50 @@
+---
+import 'katex/dist/katex.min.css';
+import '../styles/fonts.css';
+import '../styles/theme.css';
+import '../styles/global.css';
+import { SITE } from '../config';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = SITE.description } = Astro.props;
+const pageTitle = title ? `${title} — ${SITE.name}` : SITE.name;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const favicon = base + '/favicon.png';
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Critical, render-blocking: reserve the scrollbar on the very first paint so
+     the centered layout never slides left/right (in dev the main stylesheet is
+     injected by JS after first paint, which caused the header to shift). -->
+<style is:inline>html{overflow-y:scroll;}</style>
+<link rel="icon" type="image/png" href={favicon} />
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Preload the two weights used above the fold so the first paint already has
+     IBM Plex Mono — no fallback-font flash, no header jiggle on navigation. -->
+<link rel="preload" href={base + '/fonts/IBMPlexMono-Regular.woff2'} as="font" type="font/woff2" crossorigin />
+<link rel="preload" href={base + '/fonts/IBMPlexMono-SemiBold.woff2'} as="font" type="font/woff2" crossorigin />
+
+<!-- Set the theme before first paint so there is no flash. -->
+<script is:inline>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.dataset.theme = theme;
+    } catch (e) {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  })();
+</script>

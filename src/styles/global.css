@@ -1,0 +1,564 @@
+/* ============================================================================
+   Global styles.
+   theme.css owns the design tokens; this file owns every element and component.
+   Sections, in order:
+     1. Reset & base            5. Sections / lists
+     2. Links & arrows          6. Article & prose
+     3. Inline text styles      7. Code, figures, math
+     4. Top bar / hero          8. Footer
+   ============================================================================ */
+
+/* =========================================================================
+   1. RESET & BASE
+   ========================================================================= */
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Always show the vertical scrollbar track so the centered layout (top bar
+     included) never shifts horizontally between short and long pages. This is
+     the reliable cross-browser version of scrollbar-gutter. */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: var(--step);
+  font-feature-settings: "liga" 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background var(--dur) ease, color var(--dur) ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+img { max-width: 100%; height: auto; }
+
+::selection {
+  background: var(--accent-2);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-inline: var(--pad);
+}
+
+.eyebrow {
+  color: var(--fg-dim);
+  font-size: 12.5px;
+  letter-spacing: .04em;
+}
+
+/* =========================================================================
+   2. LINKS & ARROWS
+
+   Standard link         -> hover: cyan text + pink underline.
+   Nav / footer / brand  -> hover: cyan text, NO underline.
+   External link (.ext)  -> trailing arrow that grows & lifts on hover
+                            everywhere. No gap before the arrow in body text;
+                            header and footer add --arrow-gap so it never
+                            crowds the label.
+   ========================================================================= */
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+  transition: color var(--dur) ease;
+}
+
+/* Standard link: cyan text, pink underline. */
+a:hover {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-2);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* Chrome links (nav, footer, brand, backlink): cyan, no underline. */
+.topnav a:hover,
+.footer .flinks a:hover,
+.brand:hover,
+.backlink:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* Article/body links: force the pink underline on hover even when the author
+   set an inline text-decoration on the link. */
+.prose a:hover,
+.hero .lede a:hover,
+.article .lede a:hover {
+  color: var(--link);
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent-2) !important;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+/* ---- External arrow ------------------------------------------------------ */
+
+a.ext::after {
+  content: "\2197";              /* north-east arrow */
+  display: inline-block;
+  margin-left: 0;                 /* in-text links: no gap */
+  font-size: .85em;
+  color: var(--fg-dim);
+  transition: color var(--dur) ease, transform var(--dur) ease;
+}
+
+/* Header & footer share one, larger gap. */
+.topnav a.ext::after,
+.footer .flinks a.ext::after {
+  margin-left: var(--arrow-gap);
+}
+
+/* Grow + lift on hover, consistently, everywhere. */
+a.ext:hover::after {
+  color: var(--accent-2);
+  transform: translate(2px, -2px) scale(1.25);
+}
+
+/* =========================================================================
+   3. INLINE TEXT STYLES
+   Rich palette for prose and the home intro. Authors can reach these with
+   markdown (*em*, **strong**, ***both***) or explicit classes.
+   ========================================================================= */
+
+/* Emphasis -> pink italic. */
+.prose em,
+.hero .lede em,
+.article .lede em {
+  color: var(--accent-2);
+  font-style: italic;
+}
+
+/* Strong -> full-weight foreground. */
+.prose strong,
+.hero .lede strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* Bold + italic together -> mauve, both styles kept. */
+.prose strong em,
+.prose em strong {
+  color: var(--accent-4);
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Utility accent classes (usable inline in markdown / config). */
+.accent    { color: var(--accent); }
+.accent-2  { color: var(--accent-2); }
+.accent-3  { color: var(--accent-3); }
+.highlight { color: var(--accent-3); font-style: italic; font-weight: 500; }
+
+/* Underline utilities — use anywhere: class="underline" (pink),
+   "underline-fg" (matches text), "underline-accent" (green). */
+.underline,
+.underline-fg,
+.underline-accent {
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.underline        { text-decoration-color: var(--accent-2); }
+.underline-fg     { text-decoration-color: currentColor; }
+.underline-accent { text-decoration-color: var(--accent); }
+
+/* Highlighter mark. */
+.prose mark,
+mark {
+  background: var(--mark-bg);
+  color: var(--fg);
+  border-radius: var(--radius);
+  padding: .02em .28em;
+}
+
+.prose del { color: var(--fg-dim); }
+.prose ins { color: var(--accent); text-decoration: none; }
+/* <u>: thin underline in the text colour at rest, turns pink on hover. */
+u {
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color var(--dur) ease;
+}
+u:hover { text-decoration-color: var(--accent-2); }
+
+/* =========================================================================
+   4. TOP BAR / HERO
+   ========================================================================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar .row {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: .7rem var(--pad);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.brand {
+  color: var(--fg-muted);
+  font-weight: 100;
+  letter-spacing: -.01em;
+}
+
+
+.topnav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  font-size: 13.5px;
+}
+
+.topnav a { color: var(--fg-muted); }
+/* Current page: pink so it never reads as a cyan hover state. */
+.topnav a[aria-current="page"] { color: var(--accent-2); }
+
+.hero {
+  padding-top: clamp(3.5rem, 7vh, 6.5rem);
+  padding-bottom: 3.25rem;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 2.9rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.05;
+  margin: .55rem 0 0;
+}
+
+.hero .lede {
+  color: var(--fg-muted);
+  max-width: 60ch;
+  margin: 1.15rem 0 0;
+}
+
+/* Home intro links stay soft until hover. */
+.hero .lede a { color: var(--fg-muted); }
+
+.linkrow {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.4rem;
+  font-size: 14px;
+}
+
+.linkrow a { color: var(--fg); }
+
+.linkrow a::before {
+  content: "\2192";              /* rightwards arrow */
+  display: inline-block;
+  margin-right: .5em;
+  color: var(--fg-dim);
+  transition: transform var(--dur) ease, color var(--dur) ease;
+}
+
+.linkrow a:hover::before {
+  color: var(--link);
+  transform: translateX(2px);
+}
+
+/* =========================================================================
+   5. SECTION LABEL / LIST
+   ========================================================================= */
+
+.slabel {
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  margin: 3.25rem 0 1.1rem;
+  color: var(--fg-dim);
+  font-size: 12.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.slabel::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  align-self: center;
+}
+
+.list { border-top: 1px solid var(--border); }
+
+.item {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  align-items: baseline;
+  gap: .25rem 1.1rem;
+  padding: .95rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur);
+}
+
+/* Preview rows: full pink underline on hover, title turns cyan. */
+.item:hover {
+  background: var(--surface-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-2);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.item:hover .t { color: var(--link); }
+
+.item .date { color: var(--fg-dim); font-size: 12.5px; }
+.item .t { color: var(--fg); }
+.item .d { color: var(--fg-muted); font-size: 13px; grid-column: 2 / -1; }
+
+.item .arrow {
+  color: var(--fg-dim);
+  grid-row: 1;
+  grid-column: 3;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity var(--dur), transform var(--dur);
+}
+
+.item:hover .arrow {
+  opacity: 1;
+  transform: none;
+  color: var(--link);
+}
+
+/* External (publication) row arrows lift up-right, matching site ↗ links. */
+.item:hover .arrow.ext {
+  transform: translate(2px, -2px) scale(1.1);
+  color: var(--accent-2);
+}
+
+/* =========================================================================
+   6. ARTICLE & PROSE
+   ========================================================================= */
+
+.article {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.backlink { color: var(--fg-dim); font-size: 13px; }
+
+.article h1 {
+  font-size: clamp(1.7rem, 4.6vw, 2.3rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin: 1rem 0 0;
+}
+
+.article .lede {
+  color: var(--fg-muted);
+  font-size: 16px;
+  margin: 1.1rem 0 0;
+  max-width: 66ch;
+}
+
+.prose {
+  counter-reset: sec;
+  margin-top: 2.4rem;
+}
+
+.prose > * { max-width: var(--measure); }
+.prose p { margin: 0 0 1.05rem; }
+
+.prose h2 {
+  counter-increment: sec;
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  margin: 2.6rem 0 .8rem;
+}
+
+.prose h2::before {
+  content: "\00a7" counter(sec) "\00a0\00a0";
+  color: var(--accent-3);
+  font-weight: 600;
+}
+
+.prose h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.8rem 0 .6rem;
+  color: var(--fg);
+}
+
+.prose ul,
+.prose ol { margin: 0 0 1.05rem; padding-left: 1.4rem; }
+.prose li { margin: .3rem 0; }
+.prose li::marker { color: var(--accent); }
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.4rem 0;
+}
+
+.prose blockquote {
+  margin: 1.4rem 0;
+  padding: .1rem 0 .1rem 1.1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--fg-muted);
+  font-style: italic;
+}
+
+/* =========================================================================
+   7. CODE / FIGURES / MATH
+   ========================================================================= */
+
+code {
+  font-family: var(--font-mono);
+  font-size: .9em;
+  background: var(--bg-code);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .08em .4em;
+}
+
+.prose pre {
+  background: var(--bg-code) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .95rem 1.1rem;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 1.4rem 0;
+}
+
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.prose figure { margin: 1.8rem 0; }
+
+.prose figure img {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: block;
+}
+
+.prose figcaption {
+  color: var(--fg-muted);
+  font-size: 12.5px;
+  font-style: italic;
+  margin-top: .7rem;
+  line-height: 1.55;
+}
+
+.prose figcaption b {
+  color: var(--fg);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* KaTeX: let display math scroll horizontally on narrow screens instead of
+   overflowing the column, and tint it with the current foreground colour. */
+.prose .katex { color: var(--fg); font-size: 1.05em; }
+.prose .katex-display {
+  margin: 1.4rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: .4rem;
+}
+
+/* =========================================================================
+   8. FOOTER
+   ========================================================================= */
+
+.footer {
+  margin-top: 4.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer .row {
+  padding: 1.6rem var(--pad) 2.6rem;
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.footer .flinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem 1.4rem;
+  font-size: 13px;
+}
+
+.footer .flinks a {
+  color: var(--fg-muted);
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--dur);
+}
+
+/* Leading arrow on internal footer links (not external, not the Top link). */
+.footer .flinks a:not(.ext):not(.top)::before {
+  content: "\2192";
+  display: inline-block;
+  margin-right: .5em;
+  color: var(--fg-dim);
+  transition: transform var(--dur) ease, color var(--dur) ease;
+}
+
+.footer .flinks a:not(.ext):not(.top):hover::before {
+  color: var(--link);
+  transform: translateX(2px);
+}
+
+/* Top arrow lifts on hover to echo the external-arrow behaviour. */
+.footer .flinks a.top .up {
+  display: inline-block;
+  margin-left: .35em;
+  transition: transform var(--dur) ease, color var(--dur) ease;
+}
+
+.footer .flinks a.top:hover .up {
+  color: var(--accent-2);
+  transform: translateY(-3px) scale(1.2);
+}
+
+.footer .copy {
+  color: var(--fg-dim);
+  font-size: 12.5px;
+  margin-top: .9rem;
+}

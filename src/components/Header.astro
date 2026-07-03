@@ -1,0 +1,26 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { withBase } from '../config';
+const path = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const clean = path.replace(/\/$/, '');
+const rel = (base && clean.startsWith(base) ? clean.slice(base.length) : clean) || '/';
+const onWriting = rel === '/writing' || rel.startsWith('/writing/');
+const onPublications = rel === '/publications' || rel.startsWith('/publications/');
+const isHome = rel === '/';
+---
+<header class="topbar">
+  <div class="row">
+
+    <a class="brand" href={withBase('/')} aria-current={isHome ? 'page' : undefined}>home</a>
+
+    <nav class="topnav">
+      <a href={withBase('/publications')} aria-current={onPublications ? 'page' : undefined}>publications</a>
+      <a href={withBase('/writing')} aria-current={onWriting ? 'page' : undefined}>writing</a>
+      <a class="ext" href={withBase('/cv.pdf')}>cv</a>
+      <a class="ext" href="https://github.com/wephy" target="_blank" rel="noopener">github</a>
+      <ThemeToggle />
+    </nav>
+
+  </div>
+</header>

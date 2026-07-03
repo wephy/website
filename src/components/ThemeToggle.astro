@@ -1,0 +1,23 @@
+---
+---
+<button class="toggle" id="theme-toggle" type="button" aria-label="Toggle colour theme">
+  <span class="state state-dark" aria-hidden="false">☾ dark</span>
+  <span class="state state-light" aria-hidden="true">☀ light</span>
+</button>
+
+<style>
+  /* Both states are rendered and stacked in the same grid cell, so the button
+     is always as wide as the widest state ("☀ light") and never reflows the
+     nav — no jiggle on load or when toggling. The visible state is chosen
+     purely by CSS from html[data-theme], which the inline head script sets
+     before first paint, so no JS text mutation is needed. */
+  .toggle {
+    display: inline-grid;
+  }
+  .state {
+    grid-area: 1 / 1;
+    justify-self: start;
+    white-space: nowrap;
+  }
+  :global(html[data-theme="light"]) .state-dark { visibility: hidden; }
+  :global(html:not([data-theme="light"])) .state-light { visibility: hidden;

@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../../config';
+
+const papers = (await getCollection('publications', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="Publications" description="Publications by Joseph Webb.">
+  <section class="wrap" style="padding-top: clamp(2.5rem, 8vh, 4rem);">
+    <p class="eyebrow">// {papers.length} {papers.length === 1 ? 'entry' : 'entries'}</p>
+    <h1 style="font-size: clamp(1.7rem,5vw,2.3rem); font-weight:600; letter-spacing:-.02em; margin:.5rem 0 0;">Publications</h1>
+    <div class="list" style="margin-top: 2rem;">
+      {papers.map((paper) => (
+        <a
+          class="item"
+          href={paper.data.url}
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="date">
+            <FormattedDate date={paper.data.date} />
+          </span>
+          <span class="t">{paper.data.title}</span>
+          <span class="arrow ext">↗</span>
+          <span class="d">{paper.data.description}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../config';
+---
+<Base title="Not found" description="Page not found.">
+  <section class="wrap" style="padding-top: clamp(4rem,15vh,8rem); padding-bottom: 6rem;">
+    <p class="eyebrow">// 404</p>
+    <h1 style="font-size: clamp(2rem,6vw,2.9rem); font-weight:600; letter-spacing:-.02em; margin:.5rem 0 0;">Page not found</h1>
+    <p style="color: var(--fg-muted); margin-top: 1rem; max-width: 60ch;">
+      That path doesn't resolve. Head back to the
+      <a href={withBase('/')}>home page</a> or the
+      <a href={withBase('/writing')}>writing index</a>.
+    </p>
+  </section>
+</Base>

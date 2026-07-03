@@ -1,0 +1,19 @@
+---
+import { LINKS, SITE, withBase } from '../config';
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="row">
+    <div class="flinks">
+      {LINKS.map((l) => (
+        <a
+          class={'external' in l && l.external ? 'ext' : undefined}
+          href={withBase(l.href)}
+          {...('external' in l && l.external ? { target: '_blank', rel: 'noopener' } : {})}
+        >{l.label}</a>
+      ))}
+      <a class="top" href="#top">Top <span class="up">↑</span></a>
+    </div>
+    <p class="copy">{year} {SITE.name} — set in IBM Plex Mono</p>
+  </div>
+</footer>
