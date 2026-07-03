@@ -5,19 +5,24 @@
   <span class="state state-light" aria-hidden="true">☀ light</span>
 </button>
 
-<style>
-  /* Both states are rendered and stacked in the same grid cell, so the button
-     is always as wide as the widest state ("☀ light") and never reflows the
-     nav — no jiggle on load or when toggling. The visible state is chosen
-     purely by CSS from html[data-theme], which the inline head script sets
-     before first paint, so no JS text mutation is needed. */
-  .toggle {
-    display: inline-grid;
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+
+  function sync() {
+    const dark = root.dataset.theme !== 'light';
+    if (btn) {
+      btn.setAttribute('aria-pressed', String(!dark));
+      btn.querySelector('.state-dark')?.setAttribute('aria-hidden', String(!dark));
+      btn.querySelector('.state-light')?.setAttribute('aria-hidden', String(dark));
+    }
   }
-  .state {
-    grid-area: 1 / 1;
-    justify-self: start;
-    white-space: nowrap;
-  }
-  :global(html[data-theme="light"]) .state-dark { visibility: hidden; }
-  :global(html:not([data-theme="light"])) .state-light { visibility: hidden;
+  sync();
+
+  btn?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    sync();
+  });
+</script>

@@ -244,6 +244,22 @@ u:hover { text-decoration-color: var(--accent-2); }
 }
 
 .topnav a { color: var(--fg-muted); }
+
+/* Theme toggle: both states are rendered and stacked in the same grid cell,
+   so the button is always as wide as the widest state ("light") and never
+   reflows the nav — no jiggle on load or when toggling. The visible state is
+   chosen purely by CSS from html[data-theme], which the inline head script
+   sets before first paint, so no JS text mutation is needed. */
+.toggle { display: inline-grid; }
+
+.toggle .state {
+  grid-area: 1 / 1;
+  justify-self: start;
+  white-space: nowrap;
+}
+
+html[data-theme="light"] .toggle .state-dark { visibility: hidden; }
+html:not([data-theme="light"]) .toggle .state-light { visibility: hidden; }
 /* Current page: pink so it never reads as a cyan hover state. */
 .topnav a[aria-current="page"] { color: var(--accent-2); }
 
