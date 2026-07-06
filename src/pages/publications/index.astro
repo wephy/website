@@ -8,9 +8,9 @@ const papers = (await getCollection('publications', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <Base title="Publications" description="Publications by Joseph Webb.">
-  <section class="wrap" style="padding-top: clamp(2.5rem, 8vh, 4rem);">
+  <section class="wrap pagehead">
     <p class="eyebrow">// {papers.length} {papers.length === 1 ? 'entry' : 'entries'}</p>
-    <h1 style="font-size: clamp(1.7rem,5vw,2.3rem); font-weight:600; letter-spacing:-.02em; margin:.5rem 0 0;">Publications</h1>
+    <h1>Publications</h1>
     <div class="list" style="margin-top: 2rem;">
       {papers.map((paper) => (
         <a

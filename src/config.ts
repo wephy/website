@@ -8,17 +8,17 @@ export const SITE = {
   // The one-liner under your name on the home page. Plain text; wrap a phrase
   // in *asterisks* to give it the accent colour.
   intro:
-  'I am currently a Mathematics PhD student at the University of Oxford. I work on *optimisation* and *machine learning*, supervised by supervised by <a class="ext" href="https://people.maths.ox.ac.uk/cartis/" target="_blank" rel="noopener">Coralia Cartis</a>.', 
+  'I am currently a Mathematics PhD student at the University of Oxford. I work on *optimisation* and *machine learning*, supervised by <a class="ext" href="https://people.maths.ox.ac.uk/cartis/" target="_blank" rel="noopener">Coralia Cartis</a>.', 
   description:
   'Joseph Webb — mathematician, physicist, and programmer. Writing and projects.',
 } as const;
 
 // Links shown on the home page and in the footer. `external: true` adds the ↗.
 export const LINKS = [
-  { label: 'CV', href: '/cv.pdf' },
+  { label: 'CV', href: '/cv.pdf', external: false },
+  { label: 'Email', href: 'mailto:joe@wephy.com' },
   { label: 'GitHub', href: 'https://github.com/wephy', external: true },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/wephy', external: true },
-  { label: 'Email', href: 'mailto:joe@wephy.com' },
 ] as const;
 
 // Prefix an internal path with the configured base so links keep working

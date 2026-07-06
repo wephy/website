@@ -27,7 +27,8 @@ html[data-theme="dark"] {
   --bg-raised: #26282b;
   --bg-code: #1a1c1e;
 
-  --fg: #ebdbb2;
+  --fg: #ede0bd;
+  /* --fg: #ebdbb2; */
   --fg-muted: #bdae93;
   --fg-dim: #928374;
 
@@ -41,7 +42,7 @@ html[data-theme="dark"] {
   --accent: #29b07c;     /* UI / structural green */
   --accent-2: #e3658f;   /* pink — emphasis + link underline */
   --accent-3: #fe8019;   /* orange — rare highlight */
-  --accent-4: #d3869b;   /* mauve — secondary emphasis */
+  --accent-4: #827ded;   /* mauve — secondary emphasis */
 
   /* Soft tint backgrounds for inline marks (accent @ low alpha). */
   --mark-bg: rgba(254, 128, 25, 0.16);
@@ -52,7 +53,8 @@ html[data-theme="dark"] {
 ========================= */
 
 html[data-theme="light"] {
-  --bg: #f5f3ed;
+  --bg: #f5f3ee;     
+  /* --bg: #f5f3ed; */
   --bg-raised: #ffffff;
   --bg-code: #efeee8;
 
@@ -70,7 +72,7 @@ html[data-theme="light"] {
   --accent: #13c27f;
   --accent-2: #d44172;
   --accent-3: #eb6f1e;
-  --accent-4: #a34a6b;
+  --accent-4: #5944f5;
 
   --mark-bg: rgba(235, 111, 30, 0.14);
 }
