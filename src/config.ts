@@ -15,16 +15,28 @@ export const SITE = {
 
 // Links shown on the home page and in the footer. `external: true` adds the ↗.
 export const LINKS = [
+  // Takes you to the contact page rather than mailto:-ing or copying directly.
+  { label: 'Contact', href: '/contact', external: false },
   { label: 'CV', href: '/cv.pdf', external: false },
-  { label: 'Email', href: 'mailto:joe@wephy.com' },
   { label: 'GitHub', href: 'https://github.com/wephy', external: true },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/wephy', external: true },
+  // { label: 'Scholar', href: 'https://scholar.google.com/citations?user=ldlTzbYAAAAJ', external: true },
 ] as const;
+
+// Shown (and each copyable) on the contact page
+export const EMAILS = [
+  { label: 'personal', address: 'joe@wephy.com' },
+  { label: 'college', address: 'joseph.webb@worc.ox.ac.uk' },
+  { label: 'department', address: 'webb@maths.ox.ac.uk' },
+] as const;
+
+// Shown on the contact page only.
+export const ORCID = '0000-0002-3473-5625';
 
 // Prefix an internal path with the configured base so links keep working
 // whether the site is served from '/' or a project subpath like '/website'.
 export function withBase(path: string): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-  if (/^(https?:|mailto:|#)/.test(path)) return path;
+  if (/^(https?:|#)/.test(path)) return path;
   return base + (path.startsWith('/') ? path : '/' + path);
 }

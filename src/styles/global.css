@@ -137,6 +137,54 @@ a.ext:hover::after {
   transform: translate(2px, -2px) scale(1.25);
 }
 
+/* ---- Copy-to-clipboard email (contact page) ------------------------------ */
+
+a.email-copy {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+a.email-copy .copy-icon {
+  margin-right: .5em;
+  color: var(--fg-dim);
+  transition: color var(--dur) ease, transform var(--dur) ease;
+}
+
+a.email-copy:hover .copy-icon {
+  color: var(--link);
+  transform: translateY(-1px);
+}
+
+a.email-copy.copied .copy-icon {
+  color: var(--accent-2);
+}
+
+/* Stack "<address>"/"Copied" in the same grid cell (same trick as the theme
+   toggle) so the label never changes width and nothing shifts. */
+a.email-copy .email-label {
+  display: inline-grid;
+}
+
+a.email-copy .email-label > span {
+  grid-area: 1 / 1;
+  justify-self: start;
+  white-space: nowrap;
+}
+
+a.email-copy .label-copied {
+  font-style: italic;
+  visibility: hidden;
+}
+
+a.email-copy.copied .label-default {
+  visibility: hidden;
+}
+
+a.email-copy.copied .label-copied {
+  visibility: visible;
+}
+
 /* =========================================================================
    3. INLINE TEXT STYLES
    Rich palette for prose and the home intro. Authors can reach these with
@@ -344,6 +392,19 @@ html:not([data-theme="light"]) .toggle .state-light { visibility: hidden; }
 }
 
 .list { border-top: 1px solid var(--border); }
+
+/* Contact page: a plain key/value list rather than preview rows, so it drops
+   the top border and gets a wider, lowercase label column. */
+.contact-list {
+  border-top: none;
+  margin-top: 2rem;
+}
+
+.contact-list .item {
+  grid-template-columns: 7rem 1fr;
+}
+
+.contact-list .date { text-transform: lowercase; }
 
 .item {
   display: grid;

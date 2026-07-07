@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, LINKS, EMAILS, ORCID, withBase } from '../config';
+
+// Exclude the entry that points here — this page shouldn't link to itself.
+const otherLinks = LINKS.filter((l) => l.href !== '/contact');
+---
+<Base title="Contact" description={`Get in touch with ${SITE.name}.`}>
+  <section class="wrap pagehead">
+    <p class="eyebrow">// get in touch</p>
+    <h1>Contact</h1>
+
+    <div class="list contact-list">
+      {EMAILS.map((e) => (
+        <div class="item">
+          <span class="date">{e.label}</span>
+          <a class="email-copy" href="#" data-email={e.address}>
+            <svg class="copy-icon" width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="5.5" y="5.5" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M3.5 10.5V3.5C3.5 2.94772 3.94772 2.5 4.5 2.5H10.5" stroke="currentColor" stroke-width="1.3"/>
+            </svg>
+            <span class="email-label">
+              <span class="label-default">{e.address}</span>
+              <span class="label-copied">Copied</span>
+            </span>
+          </a>
+        </div>
+      ))}
+
+      {otherLinks.map((l) => (
+        <div class="item">
+          <span class="date">{l.label.toLowerCase()}</span>
+          <a
+            href={withBase(l.href)}
+            class={'external' in l && l.external ? 'ext' : undefined}
+            {...('external' in l && l.external ? { target: '_blank', rel: 'noopener' } : {})}
+          >{l.href.replace(/^https?:\/\//, '')}</a>
+        </div>
+      ))}
+
+      <div class="item">
+        <span class="date">orcid</span>
+        <a class="ext" href={`https://orcid.org/${ORCID}`} target="_blank" rel="noopener">orcid.org/{ORCID}</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll<HTMLAnchorElement>('.email-copy').forEach((link) => {
+      let resetTimer: ReturnType<typeof setTimeout> | undefined;
+
+      link.addEventListener('click', async (e) => {
+        const email = link.dataset.email;
+        if (!email) return;
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch {
+          // Clipboard API unavailable (e.g. insecure context) — nothing more we can do.
+          return;
+        }
+        clearTimeout(resetTimer);
+        link.classList.add('copied');
+        resetTimer = setTimeout(() => {
+          link.classList.remove('copied');
+        }, 1000);
+      });
+    });
+  </script>
+</Base>

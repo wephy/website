@@ -8,6 +8,8 @@ draft: false
 
 In <i>The Office</i>, Kevin Malone says the beautiful phrase: ***why waste time say lot word when few do trick***. The profound statement hints towards the redundancy in almost all data we encounter, and it emerges in mathematics, too.
 
+## Work in progress
+
 <!-- 
 During Claude Shannon's investigation on redundancy for his paper  <a class="ext" href="https://www.princeton.edu/~wbialek/rome/refs/shannon_51.pdf" style="font-style: italic; text-decoration: underline" target="_blank" rel="noopener">Prediction and Entropy of Printed English</a>, he devised a letter-guessing game for his wife Betty Shannon. It begins with him presenting the first letter, a *T*, then asking what comes next. Let's have you play, instead of Betty.
 
