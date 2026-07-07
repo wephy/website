@@ -25,6 +25,7 @@
 html[data-theme="dark"] {
   --bg: #1d1f21;
   --bg-raised: #26282b;
+  --bg-button: #3b3e41;
   --bg-code: #1a1c1e;
 
   --fg: #ede0bd;
@@ -56,6 +57,7 @@ html[data-theme="light"] {
   --bg: #f5f3ee;     
   /* --bg: #f5f3ed; */
   --bg-raised: #ffffff;
+  --bg-button: #dddad3;
   --bg-code: #efeee8;
 
   --fg: #2c2b28;

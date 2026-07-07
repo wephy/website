@@ -298,12 +298,27 @@ u:hover { text-decoration-color: var(--accent-2); }
    reflows the nav — no jiggle on load or when toggling. The visible state is
    chosen purely by CSS from html[data-theme], which the inline head script
    sets before first paint, so no JS text mutation is needed. */
-.toggle { display: inline-grid; }
+.toggle { display: inline-grid;}
 
 .toggle .state {
   grid-area: 1 / 1;
   justify-self: start;
   white-space: nowrap;
+  /* color: var(--fg); */
+}
+
+button {
+  /* background-color: var(--bg-code); */
+  font-family: var(--font-mono);
+  background-color: var(--bg-button);
+  border: 2px solid transparent;
+  color: var(--fg);
+  padding: 5px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center !important;
+  margin: auto; 
+  /* transition: all 0.1s ease-in-out; */
 }
 
 html[data-theme="light"] .toggle .state-dark { visibility: hidden; }
