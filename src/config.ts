@@ -32,6 +32,8 @@ export const EMAILS = [
 
 // Shown on the contact page only.
 export const ORCID = '0000-0002-3473-5625';
+export const SCHOLAR = 'ldlTzbYAAAAJ';
+
 
 // Prefix an internal path with the configured base so links keep working
 // whether the site is served from '/' or a project subpath like '/website'.

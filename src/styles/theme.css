@@ -11,7 +11,7 @@
   --step: 1.6;
   --pad: clamp(1.25rem, 4vw, 2.5rem);
   --radius: 3px;
-  --dur: .18s;
+  --dur: .24s;
   --content-width: 760px;
 
   /* Gap between link text and a trailing ↗ arrow (header & footer share this). */

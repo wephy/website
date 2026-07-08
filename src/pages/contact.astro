@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, LINKS, EMAILS, ORCID, withBase } from '../config';
+import { SITE, LINKS, EMAILS, SCHOLAR, ORCID, withBase } from '../config';
 
 // Exclude the entry that points here — this page shouldn't link to itself.
 const otherLinks = LINKS.filter((l) => l.href !== '/contact');
@@ -39,6 +39,11 @@ const otherLinks = LINKS.filter((l) => l.href !== '/contact');
       ))}
 
       <div class="item">
+        <span class="date">scholar</span>
+        <a class="ext" href={`https://scholar.google.com/citations?user=${SCHOLAR}`} target="_blank" rel="noopener">scholar.google.com/citations?user={SCHOLAR}</a>
+      </div>
+
+      <div class="item">
         <span class="date">orcid</span>
         <a class="ext" href={`https://orcid.org/${ORCID}`} target="_blank" rel="noopener">orcid.org/{ORCID}</a>
       </div>
@@ -48,21 +53,38 @@ const otherLinks = LINKS.filter((l) => l.href !== '/contact');
   <script>
     document.querySelectorAll<HTMLAnchorElement>('.email-copy').forEach((link) => {
       let resetTimer: ReturnType<typeof setTimeout> | undefined;
+      let tooltip: HTMLDivElement | null = null;
+      const label = link.querySelector<HTMLSpanElement>('.email-label');
 
       link.addEventListener('click', async (e) => {
         const email = link.dataset.email;
         if (!email) return;
+
         e.preventDefault();
+
         try {
           await navigator.clipboard.writeText(email);
         } catch {
-          // Clipboard API unavailable (e.g. insecure context) — nothing more we can do.
           return;
         }
+
         clearTimeout(resetTimer);
-        link.classList.add('copied');
+
+        if (!tooltip) {
+          tooltip = document.createElement('div');
+          tooltip.textContent = 'copied';
+          tooltip.className = 'copy-tooltip';
+          (label ?? link).appendChild(tooltip);
+          // Force a layout flush so the initial opacity:0 state is committed
+          // before we add "show" — otherwise the browser collapses the two
+          // states and the intro transition never plays on first insertion.
+          tooltip.offsetHeight;
+        }
+
+        tooltip.classList.add('show');
+
         resetTimer = setTimeout(() => {
-          link.classList.remove('copied');
+          tooltip?.classList.remove('show');
         }, 1000);
       });
     });

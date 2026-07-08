@@ -164,6 +164,7 @@ a.email-copy.copied .copy-icon {
    toggle) so the label never changes width and nothing shifts. */
 a.email-copy .email-label {
   display: inline-grid;
+  position: relative;
 }
 
 a.email-copy .email-label > span {
@@ -173,7 +174,7 @@ a.email-copy .email-label > span {
 }
 
 a.email-copy .label-copied {
-  font-style: italic;
+  font-style: normal;
   visibility: hidden;
 }
 
@@ -183,6 +184,31 @@ a.email-copy.copied .label-default {
 
 a.email-copy.copied .label-copied {
   visibility: visible;
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 20px;
+  transform: translateX(-20px) translateY(10px);
+  padding: 3px 7px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  color: var(--accent-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-style: normal;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) ease, transform var(--dur) ease;
+}
+
+.copy-tooltip.show {
+  opacity: 1;
+  transform: translateX(10px) translateY(0);
 }
 
 /* =========================================================================
