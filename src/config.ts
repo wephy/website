@@ -2,7 +2,7 @@
 // Edit these and the whole site updates.
 
 export const SITE = {
-  name: 'Joseph Webb',
+  name: 'Joseph J. Webb',
   handle: 'webb',
   role: 'Mathematician · Physicist · Programmer',
   // The one-liner under your name on the home page. Plain text; wrap a phrase
